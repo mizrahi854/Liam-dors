@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>מעבר לאתר</title>
+
+  <!--
+    שער הכניסה של האתר.
+
+    למה הקובץ הזה קיים: קובץ האינדקס האמיתי נמצא בתוך תיקיית site.
+    כאן רק מפנים לדף הכניסה כדי ש-GitHub Pages לא יחזיר שגיאת 404.
+
+    ההפניה נעשית בשלוש שכבות:
+      1. meta refresh  — עובד גם בלי JavaScript
+      2. JS + replace  — מיידי, ולא משאיר את הדף הזה בהיסטוריה
+      3. קישור גלוי    — אם שתי הראשונות נחסמו, עדיין אפשר להיכנס
+  -->
+  <meta http-equiv="refresh" content="0; url=site/index.html">
+  <link rel="canonical" href="site/dist/index.html">
+
+  <style>
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      gap: 1rem;
+      background-color: #fbf8f4;
+      color: #2b2724;
+      font-family: system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+      text-align: center;
+    }
+    a {
+      color: #333;
+      font-size: 1.0625rem;
+      text-underline-offset: 4px;
+    }
+  </style>
+</head>
+
+<body>
+  <main>
+    <p>מעבירים אותך לאתר…</p>
+    <p><a href="site/dist/index.html">כניסה לאתר</a></p>
+  </main>
+
+  <script>
+    // replace ולא href — כדי שכפתור "אחורה" בדפדפן לא יחזיר לכאן ויתחיל לולאה
+    location.replace("site/dist/index.html");
+  </script>
+</body>
+</html>
