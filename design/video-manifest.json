@@ -1,0 +1,172 @@
+[
+  {
+    "id": 1,
+    "path": "assets/videos/#דלתותקואפס#דלתותפנים#דלתותיוקרה#אדריכלים#אדריכלותמעצביפניםעיצובפניםבוניםביתביתהחלומותביתפרטיבני 2.mp4",
+    "duration_seconds": 55.53,
+    "width": 720.0,
+    "height": 1280.0,
+    "fps": 30.0,
+    "sample_frames": [
+      {
+        "seconds": 1.67,
+        "path": "design/review/video-frames/v1-1.jpg"
+      },
+      {
+        "seconds": 10.0,
+        "path": "design/review/video-frames/v1-2.jpg"
+      },
+      {
+        "seconds": 19.44,
+        "path": "design/review/video-frames/v1-3.jpg"
+      },
+      {
+        "seconds": 28.88,
+        "path": "design/review/video-frames/v1-4.jpg"
+      },
+      {
+        "seconds": 38.87,
+        "path": "design/review/video-frames/v1-5.jpg"
+      },
+      {
+        "seconds": 48.87,
+        "path": "design/review/video-frames/v1-6.jpg"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "path": "assets/videos/#דלתותקואפס#דלתותפנים#דלתותיוקרה#אדריכלים#אדריכלותמעצביפניםעיצובפניםבוניםביתביתהחלומותביתפרטיבני.mp4",
+    "duration_seconds": 22.63,
+    "width": 720.0,
+    "height": 1280.0,
+    "fps": 30.0,
+    "sample_frames": [
+      {
+        "seconds": 0.68,
+        "path": "design/review/video-frames/v2-1.jpg"
+      },
+      {
+        "seconds": 4.07,
+        "path": "design/review/video-frames/v2-2.jpg"
+      },
+      {
+        "seconds": 7.92,
+        "path": "design/review/video-frames/v2-3.jpg"
+      },
+      {
+        "seconds": 11.77,
+        "path": "design/review/video-frames/v2-4.jpg"
+      },
+      {
+        "seconds": 15.84,
+        "path": "design/review/video-frames/v2-5.jpg"
+      },
+      {
+        "seconds": 19.92,
+        "path": "design/review/video-frames/v2-6.jpg"
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "path": "assets/videos/יוקרה אמיתית אינה זקוקה לרעש – היא ניכרת בפרטים הקטנים.מאחורי כל דלת קו אפס מאלומיניום של ליאם ד.mp4",
+    "duration_seconds": 27.6,
+    "width": 720.0,
+    "height": 1280.0,
+    "fps": 30.0,
+    "sample_frames": [
+      {
+        "seconds": 0.83,
+        "path": "design/review/video-frames/v3-1.jpg"
+      },
+      {
+        "seconds": 4.97,
+        "path": "design/review/video-frames/v3-2.jpg"
+      },
+      {
+        "seconds": 9.66,
+        "path": "design/review/video-frames/v3-3.jpg"
+      },
+      {
+        "seconds": 14.35,
+        "path": "design/review/video-frames/v3-4.jpg"
+      },
+      {
+        "seconds": 19.32,
+        "path": "design/review/video-frames/v3-5.jpg"
+      },
+      {
+        "seconds": 24.29,
+        "path": "design/review/video-frames/v3-6.jpg"
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "path": "assets/videos/כשעיצוב מוקפד פוגש הנדסת דיוק – נוצרת דלת קו אפס מאלומיניום ברמה אחרת.במפעל שלנו באליפלט, כל דלת.mp4",
+    "duration_seconds": 46.7,
+    "width": 720.0,
+    "height": 1280.0,
+    "fps": 30.0,
+    "sample_frames": [
+      {
+        "seconds": 1.4,
+        "path": "design/review/video-frames/v4-1.jpg"
+      },
+      {
+        "seconds": 8.41,
+        "path": "design/review/video-frames/v4-2.jpg"
+      },
+      {
+        "seconds": 16.34,
+        "path": "design/review/video-frames/v4-3.jpg"
+      },
+      {
+        "seconds": 24.28,
+        "path": "design/review/video-frames/v4-4.jpg"
+      },
+      {
+        "seconds": 32.69,
+        "path": "design/review/video-frames/v4-5.jpg"
+      },
+      {
+        "seconds": 41.1,
+        "path": "design/review/video-frames/v4-6.jpg"
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "path": "assets/videos/✨ כשהכניסה לבית הופכת ליצירת עיצוב ✨דלת פיבוט מרשימה מבית היוצר ליאם דלתות, שתוכננה לייצר נוכחות.mp4",
+    "duration_seconds": 40.83,
+    "width": 576.0,
+    "height": 768.0,
+    "fps": 30.0,
+    "sample_frames": [
+      {
+        "seconds": 1.23,
+        "path": "design/review/video-frames/v5-1.jpg"
+      },
+      {
+        "seconds": 7.35,
+        "path": "design/review/video-frames/v5-2.jpg"
+      },
+      {
+        "seconds": 14.29,
+        "path": "design/review/video-frames/v5-3.jpg"
+      },
+      {
+        "seconds": 21.23,
+        "path": "design/review/video-frames/v5-4.jpg"
+      },
+      {
+        "seconds": 28.58,
+        "path": "design/review/video-frames/v5-5.jpg"
+      },
+      {
+        "seconds": 35.93,
+        "path": "design/review/video-frames/v5-6.jpg"
+      }
+    ]
+  }
+]

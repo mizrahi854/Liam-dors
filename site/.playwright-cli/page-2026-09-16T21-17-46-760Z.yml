@@ -1,0 +1,209 @@
+- generic [active] [ref=e1]:
+  - link "דלגו לעבודות" [ref=e2] [cursor=pointer]:
+    - /url: "#collection"
+  - generic [ref=e3]:
+    - banner [ref=e4]:
+      - link "ליאם דלתות — תחילת הקטלוג" [ref=e5] [cursor=pointer]:
+        - /url: "#"
+        - generic [ref=e6]: LIAM
+        - generic [ref=e7]: דלתות מעוצבות
+      - button "פתיחת תפריט" [ref=e8] [cursor=pointer]
+    - main [ref=e11]:
+      - region "דלתות קו אפס — כניסה לקטלוג" [ref=e12]:
+        - generic [ref=e13]:
+          - img "דלת קו אפס אפורה פתוחה, משתלבת בחיפוי הקיר" [ref=e14]
+          - img "דלת פיבוט פתוחה בחלל אדריכלי" [ref=e16]
+          - generic [ref=e18]:
+            - paragraph [ref=e19]: ARCHITECTURAL DOORS
+            - heading "THE ART OF ENTRANCE." [level=1] [ref=e20]: THE ARTOF ENTRANCE.
+            - paragraph [ref=e21]: דלתות קו אפס – כשהדלת הופכת לחלק מהאדריכלות
+            - link "לכל הדלתות" [ref=e22] [cursor=pointer]:
+              - /url: "#doors"
+              - text: לכל הדלתות
+              - generic [aria-hidden] [ref=e23]: ←
+          - generic [aria-hidden]:
+            - paragraph: A PERFECT CONTINUATION
+            - heading [level=2]: SEAMLESS. TIMELESS.
+            - paragraph: הדלת. הקיר. קו אחד. דיוק שרואים, בכל זווית.
+            - link:
+              - /url: "#doors"
+              - text: לכל הדלתות
+              - generic [aria-hidden]: ←
+          - link "גללו. הדלת נפתחת." [ref=e24] [cursor=pointer]:
+            - /url: "#collection"
+            - generic [aria-hidden] [ref=e27]: ↓
+      - generic [ref=e29]:
+        - generic [ref=e30]:
+          - paragraph [ref=e31]: SELECTED ENTRANCES
+          - heading "כניסות עם נוכחות." [level=2] [ref=e32]: כניסותעם נוכחות.
+          - paragraph [ref=e33]: מערכת דלתות קו אפס מתקדמת, המיועדת לפרויקטים אדריכליים שבהם דיוק, עיצוב, חוזק ועמידות חייבים לעבוד יחד.
+        - 'button "הגדלת התמונה: דלת ברונזה בכניסת אבן מעוטרת" [ref=e35] [cursor=pointer]':
+          - figure "דלת ברונזה בכניסת אבן מעוטרת" [ref=e36]:
+            - img "דלת ברונזה בכניסת אבן מעוטרת" [ref=e37]
+            - generic [ref=e38]:
+              - generic [ref=e39]: דלת ברונזה בכניסת אבן מעוטרת
+              - generic [aria-hidden] [ref=e40]: ↗
+        - generic [ref=e41]:
+          - 'button "הגדלת התמונה: דלת קו אפס אפורה פתוחה" [ref=e43] [cursor=pointer]':
+            - figure "דלת קו אפס אפורה פתוחה" [ref=e44]:
+              - img "דלת קו אפס אפורה פתוחה" [ref=e45]
+          - 'button "הגדלת התמונה: דלת נסתרת בחזית כהה" [ref=e49] [cursor=pointer]':
+            - figure "דלת נסתרת בחזית כהה" [ref=e50]:
+              - img "דלת נסתרת בחזית כהה" [ref=e51]
+        - link "לכל הדלתות" [ref=e54] [cursor=pointer]:
+          - /url: "#doors"
+          - text: לכל הדלתות
+          - generic [aria-hidden] [ref=e55]: ←
+      - region [ref=e56]:
+        - img "דלת אבן בהירה תחת תקרת קורות בכניסה לבית" [ref=e57]
+        - generic [ref=e59]:
+          - paragraph [ref=e60]: PART OF THE ARCHITECTURE
+          - heading "הבית מתחיל כאן." [level=2] [ref=e61]: הבית מתחילכאן.
+          - paragraph [ref=e62]: המערכת מאפשרת לקבל דלת המשתלבת באופן כמעט מושלם במישור הקיר, עם משקוף נסתר, צירים סמויים ומגוון רחב של חיפויים – פורצלן, HPL, אלומיניום ועוד.
+          - button "לראות מקרוב" [ref=e63] [cursor=pointer]:
+            - text: לראות מקרוב
+            - generic [aria-hidden] [ref=e64]: ↗
+      - generic [ref=e65]:
+        - generic [ref=e66]:
+          - paragraph [ref=e67]: BEAUTY. BUILT IN.
+          - heading "מערכת שנבנתה כדי להחזיק לאורך שנים" [level=2] [ref=e68]: מערכת שנבנתהכדי להחזיקלאורך שנים
+        - paragraph [ref=e69]: הכנף בנויה במבנה רב־שכבתי הכולל קורות חיזוק פנימיות, פרופילי אלומיניום, שכבות חיזוק וחומרי מילוי ייעודיים, המאפשרים להתמודד עם משקל החיפוי ועם דרישות של פתחים גדולים.
+        - generic [ref=e70]:
+          - generic [ref=e71]: 85mm
+          - paragraph [ref=e72]: "עובי הכנף: כ־85 מ”מ."
+        - generic [ref=e73]:
+          - 'button "הגדלת התמונה: דלת בהירה במבואת אבן" [ref=e75] [cursor=pointer]':
+            - figure "דלת בהירה במבואת אבן" [ref=e76]:
+              - img "דלת בהירה במבואת אבן" [ref=e77]
+          - 'button "הגדלת התמונה: דלת המשתלבת בחיפוי הקיר" [ref=e81] [cursor=pointer]':
+            - figure "דלת המשתלבת בחיפוי הקיר" [ref=e82]:
+              - img "דלת המשתלבת בחיפוי הקיר" [ref=e83]
+        - paragraph [ref=e86]: המערכת תוכננה מתוך חשיבה על יציבות, חוזק ועמידות לאורך זמן – גם כאשר מדובר בדלתות גדולות וכבדות.
+      - generic [ref=e87]:
+        - generic [ref=e88]:
+          - paragraph [ref=e89]: ONE CONTINUOUS LINE
+          - heading "חיפוי ללא גבולות." [level=2] [ref=e90]: חיפויללא גבולות.
+          - paragraph [ref=e91]: אחד היתרונות המרכזיים של המערכת הוא האפשרות להפוך את הדלת לחלק בלתי נפרד מהקיר.
+        - 'button "הגדלת התמונה: כניסה מחופה בגוון אפור" [ref=e93] [cursor=pointer]':
+          - figure "כניסה מחופה בגוון אפור" [ref=e94]:
+            - img "כניסה מחופה בגוון אפור" [ref=e95]
+            - generic [ref=e96]:
+              - generic [ref=e97]: כניסה מחופה בגוון אפור
+              - generic [aria-hidden] [ref=e98]: ↗
+        - generic [ref=e99]:
+          - paragraph [ref=e100]: "ניתן לשלב:"
+          - paragraph [ref=e101]: גרניט פורצלן | HPL | אלומיניום | חיפויים אדריכליים נוספים
+        - paragraph [ref=e102]: כך ניתן להמשיך את אותו חומר, טקסטורה וגוון מהקיר אל הדלת – וליצור חזית אדריכלית רציפה, נקייה ומדויקת.
+        - 'button "הגדלת התמונה: דלת אבן באור יום" [ref=e104] [cursor=pointer]':
+          - figure "דלת אבן באור יום" [ref=e105]:
+            - img "דלת אבן באור יום" [ref=e106]
+            - generic [ref=e107]:
+              - generic [ref=e108]: דלת אבן באור יום
+              - generic [aria-hidden] [ref=e109]: ↗
+        - link "לכל הדלתות" [ref=e110] [cursor=pointer]:
+          - /url: "#doors"
+          - text: לכל הדלתות
+          - generic [aria-hidden] [ref=e111]: ←
+      - region [ref=e112]:
+        - generic "מבט מהחצר והבית אל דלת הכניסה הנפתחת" [ref=e113]
+        - generic [ref=e115]:
+          - generic [ref=e116]: A MOMENT BEFORE YOU ENTER
+          - generic [ref=e117]: 00:00 / 00:14
+        - generic [ref=e118]:
+          - heading "FROM OUTSIDE. TO WITHIN." [level=2] [ref=e119]: FROM OUTSIDE.TO WITHIN.
+          - paragraph [ref=e120]: מבט אל הבית.ואז, הדלת נפתחת.
+          - generic [ref=e121]:
+            - button "הפעלת הסרטון" [ref=e122] [cursor=pointer]: ▶
+            - generic [ref=e124]: ללא קול
+      - generic [ref=e125]:
+        - generic [ref=e126]:
+          - paragraph [ref=e127]: THE DETAILS MAKE THE DOOR
+          - heading "פרזול ברמה הגבוהה ביותר" [level=2] [ref=e128]: פרזול ברמההגבוהה ביותר
+          - paragraph [ref=e129]: המערכת מאפשרת שילוב של צירים סמויים בעלי כושר נשיאה גבוה, מנעולים איכותיים ופתרונות נעילה מתקדמים.
+        - 'button "הגדלת התמונה: דלת גרפיט ופרטי הידית" [ref=e131] [cursor=pointer]':
+          - figure "דלת גרפיט ופרטי הידית" [ref=e132]:
+            - img "דלת גרפיט ופרטי הידית" [ref=e133]
+            - generic [ref=e134]:
+              - generic [ref=e135]: דלת גרפיט ופרטי הידית
+              - generic [aria-hidden] [ref=e136]: ↗
+        - paragraph [ref=e137]: בהתאם למפרט המערכת ניתן לשלב גם מנעול Mottura, סף תחתון אקטיבי ופתרונות אטימה היקפיים, לקבלת סגירה מדויקת ואיכותית.
+        - generic [ref=e138]:
+          - 'button "הגדלת התמונה: כניסה רחבה בגוון גרפיט" [ref=e140] [cursor=pointer]':
+            - figure "כניסה רחבה בגוון גרפיט" [ref=e141]:
+              - img "כניסה רחבה בגוון גרפיט" [ref=e142]
+          - 'button "הגדלת התמונה: דלת כהה בין קירות אבן" [ref=e146] [cursor=pointer]':
+            - figure "דלת כהה בין קירות אבן" [ref=e147]:
+              - img "דלת כהה בין קירות אבן" [ref=e148]
+        - generic [ref=e151]:
+          - heading "אטימה ובידוד" [level=3] [ref=e152]
+          - paragraph [ref=e153]: מבנה הכנף והמערכת ההיקפית מאפשרים לשלב פתרונות אטימה מתקדמים, לרבות אטם היקפי וסף תחתון אקטיבי.
+          - paragraph [ref=e154]: "התוצאה: תחושת סגירה איכותית, שיפור באטימה והפחתת מעבר רעשים ואוויר, בהתאם למפרט הסופי של הדלת."
+        - 'button "הגדלת התמונה: דלת פתוחה אל חלל הבית" [ref=e156] [cursor=pointer]':
+          - figure "דלת פתוחה אל חלל הבית" [ref=e157]:
+            - img "דלת פתוחה אל חלל הבית" [ref=e158]
+            - generic [ref=e159]:
+              - generic [ref=e160]: דלת פתוחה אל חלל הבית
+              - generic [aria-hidden] [ref=e161]: ↗
+        - generic [ref=e162]:
+          - heading "בטיחות, חוזק ועמידות" [level=3] [ref=e163]
+          - paragraph [ref=e164]: המערכת מתוכננת עם שכבות חיזוק וחומרים ייעודיים, לרבות חומרים בעלי מאפיינים אקוסטיים ופתרונות המתאימים לדרישות בטיחות ואש בהתאם למפרט ולתקן הרלוונטי.
+        - link "לכל הדלתות" [ref=e165] [cursor=pointer]:
+          - /url: "#doors"
+          - text: לכל הדלתות
+          - generic [aria-hidden] [ref=e166]: ←
+      - generic [ref=e167]:
+        - generic [ref=e168]:
+          - paragraph [ref=e169]: A DIFFERENT EXPRESSION. SAME PRECISION.
+          - heading "לכל בית, הכניסה שלו." [level=2] [ref=e170]: לכל בית,הכניסה שלו.
+        - 'button "הגדלת התמונה: דלת מתכת בגוון ברונזה" [ref=e172] [cursor=pointer]':
+          - figure "דלת מתכת בגוון ברונזה" [ref=e173]:
+            - img "דלת מתכת בגוון ברונזה" [ref=e174]
+            - generic [ref=e175]:
+              - generic [ref=e176]: דלת מתכת בגוון ברונזה
+              - generic [aria-hidden] [ref=e177]: ↗
+        - generic [ref=e178]:
+          - 'button "הגדלת התמונה: דלת מתכת בחזית לבנה" [ref=e180] [cursor=pointer]':
+            - figure "דלת מתכת בחזית לבנה" [ref=e181]:
+              - img "דלת מתכת בחזית לבנה" [ref=e182]
+          - 'button "הגדלת התמונה: דלת לבנה בקווים נקיים" [ref=e186] [cursor=pointer]':
+            - figure "דלת לבנה בקווים נקיים" [ref=e187]:
+              - img "דלת לבנה בקווים נקיים" [ref=e188]
+        - 'button "הגדלת התמונה: דלת פנים לבנה" [ref=e192] [cursor=pointer]':
+          - figure "דלת פנים לבנה" [ref=e193]:
+            - img "דלת פנים לבנה" [ref=e194]
+            - generic [ref=e195]:
+              - generic [ref=e196]: דלת פנים לבנה
+              - generic [aria-hidden] [ref=e197]: ↗
+        - link "לכל הדלתות" [ref=e198] [cursor=pointer]:
+          - /url: "#doors"
+          - text: לכל הדלתות
+          - generic [aria-hidden] [ref=e199]: ←
+      - region [ref=e200]:
+        - generic "עבודת הייצור וההרכבה של הדלת במפעל" [ref=e201]
+        - generic [ref=e203]:
+          - paragraph [ref=e204]: CRAFTED OVER GENERATIONS
+          - heading "40 שנות ניסיון" [level=2] [ref=e205]:
+            - generic [ref=e206]: "40"
+            - generic [ref=e207]: שנות ניסיון
+        - generic [ref=e208]:
+          - heading "דיוק שרואים. איכות שמרגישים." [level=3] [ref=e209]: דיוק שרואים.איכות שמרגישים.
+          - paragraph [ref=e210]: מאחורי הטכנולוגיה עומדות 40 שנות ניסיון, ידע מעשי ויכולת לייצר פתרונות מותאמים לפרויקטים מורכבים.
+          - paragraph [ref=e211]: אנחנו יודעים לקחת דרישה אדריכלית – גובה, רוחב, משקל, סוג חיפוי, כיוון פתיחה ודרישות פרזול – ולהפוך אותה למערכת דלת מדויקת, חזקה ואסתטית.
+          - generic [ref=e212]:
+            - button "הפעלת הסרטון" [ref=e213] [cursor=pointer]: ▶
+            - generic [ref=e215]: ללא קול
+          - link "לכל הדלתות" [ref=e216] [cursor=pointer]:
+            - /url: "#doors"
+            - text: לכל הדלתות
+            - generic [aria-hidden] [ref=e217]: ←
+    - contentinfo [ref=e218]:
+      - link "ליאם דלתות — תחילת הקטלוג" [ref=e219] [cursor=pointer]:
+        - /url: "#"
+        - generic [ref=e220]: LIAM
+        - generic [ref=e221]: דלתות מעוצבות
+      - link "כל הדלתות" [ref=e222] [cursor=pointer]:
+        - /url: "#doors"
+        - text: כל הדלתות
+        - generic [aria-hidden] [ref=e223]: ←
+      - paragraph [ref=e224]: דלת שהיא חלק מהאדריכלות.
+      - generic [ref=e225]: © 2026 ליאם דלתות

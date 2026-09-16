@@ -1,0 +1,12 @@
+{
+  "name": "liam-doors-catalog",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "A mobile architectural door catalog with scroll-driven hero and cinematic video.",
+  "scripts": {
+    "dev": "node scripts/serve.mjs",
+    "start": "node scripts/serve.mjs",
+    "check": "node --check dist/app.js && node scripts/check.mjs"
+  }
+}

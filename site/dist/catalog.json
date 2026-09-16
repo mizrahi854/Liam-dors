@@ -1,0 +1,350 @@
+{
+  "photos": [
+    {
+      "id": 1,
+      "title": "כניסה מחופה אבן בהירה",
+      "category": "stone",
+      "width": 1200,
+      "height": 1600,
+      "featured": true
+    },
+    {
+      "id": 2,
+      "title": "דלת מעוצבת · צילום 02",
+      "category": "wood",
+      "width": 1200,
+      "height": 1600,
+      "featured": false
+    },
+    {
+      "id": 3,
+      "title": "דלת מעוצבת · צילום 03",
+      "category": "wood",
+      "width": 1200,
+      "height": 1600,
+      "featured": false
+    },
+    {
+      "id": 4,
+      "title": "דלת מתכת בגוון ברונזה",
+      "category": "metal",
+      "width": 1024,
+      "height": 1536,
+      "featured": true
+    },
+    {
+      "id": 5,
+      "title": "דלת מעוצבת · צילום 05",
+      "category": "metal",
+      "width": 667,
+      "height": 1000,
+      "featured": false
+    },
+    {
+      "id": 6,
+      "title": "דלת שחורה בכניסה מוארת",
+      "category": "metal",
+      "width": 1200,
+      "height": 1600,
+      "featured": false
+    },
+    {
+      "id": 7,
+      "title": "דלת מעוצבת · צילום 07",
+      "category": "wood",
+      "width": 720,
+      "height": 1600,
+      "featured": false
+    },
+    {
+      "id": 8,
+      "title": "דלת מעוצבת · צילום 08",
+      "category": "wood",
+      "width": 1024,
+      "height": 1536,
+      "featured": false
+    },
+    {
+      "id": 9,
+      "title": "דלת נסתרת בחזית כהה",
+      "category": "metal",
+      "width": 1200,
+      "height": 1600,
+      "featured": true
+    },
+    {
+      "id": 10,
+      "title": "דלת בהירה בחזית הבית",
+      "category": "light",
+      "width": 1200,
+      "height": 1600,
+      "featured": false
+    },
+    {
+      "id": 11,
+      "title": "כניסה רחבה בגוון גרפיט",
+      "category": "metal",
+      "width": 1105,
+      "height": 650,
+      "featured": true
+    },
+    {
+      "id": 12,
+      "title": "דלת מעוצבת · צילום 12",
+      "category": "stone",
+      "width": 945,
+      "height": 2048,
+      "featured": false
+    },
+    {
+      "id": 13,
+      "title": "דלת מעוצבת · צילום 13",
+      "category": "metal",
+      "width": 1200,
+      "height": 1600,
+      "featured": false
+    },
+    {
+      "id": 14,
+      "title": "דלת מעוצבת · צילום 14",
+      "category": "metal",
+      "width": 1026,
+      "height": 1824,
+      "featured": false
+    },
+    {
+      "id": 15,
+      "title": "דלת מעוצבת · צילום 15",
+      "category": "other",
+      "width": 667,
+      "height": 1000,
+      "featured": false
+    },
+    {
+      "id": 16,
+      "title": "דלת בהירה במבואת אבן",
+      "category": "stone",
+      "width": 1200,
+      "height": 1600,
+      "featured": true
+    },
+    {
+      "id": 17,
+      "title": "דלת מעוצבת · צילום 17",
+      "category": "metal",
+      "width": 1536,
+      "height": 2048,
+      "featured": false
+    },
+    {
+      "id": 18,
+      "title": "דלת המשתלבת בחיפוי הקיר",
+      "category": "stone",
+      "width": 1536,
+      "height": 2048,
+      "featured": true
+    },
+    {
+      "id": 19,
+      "title": "דלת מעוצבת · צילום 19",
+      "category": "metal",
+      "width": 667,
+      "height": 1000,
+      "featured": false
+    },
+    {
+      "id": 20,
+      "title": "דלת מעוצבת · צילום 20",
+      "category": "metal",
+      "width": 1200,
+      "height": 1600,
+      "featured": false
+    },
+    {
+      "id": 21,
+      "title": "דלת מתכת בחזית לבנה",
+      "category": "metal",
+      "width": 1000,
+      "height": 667,
+      "featured": true
+    },
+    {
+      "id": 22,
+      "title": "דלת מעוצבת · צילום 22",
+      "category": "metal",
+      "width": 1200,
+      "height": 1600,
+      "featured": false
+    },
+    {
+      "id": 23,
+      "title": "דלת מעוצבת · צילום 23",
+      "category": "other",
+      "width": 1200,
+      "height": 1600,
+      "featured": false
+    },
+    {
+      "id": 24,
+      "title": "דלת לבנה בקווים נקיים",
+      "category": "light",
+      "width": 1271,
+      "height": 799,
+      "featured": true
+    },
+    {
+      "id": 25,
+      "title": "דלת כהה בין קירות אבן",
+      "category": "metal",
+      "width": 1200,
+      "height": 1600,
+      "featured": true
+    },
+    {
+      "id": 26,
+      "title": "כניסה מחופה בגוון אפור",
+      "category": "stone",
+      "width": 1512,
+      "height": 2016,
+      "featured": true
+    },
+    {
+      "id": 27,
+      "title": "דלת קו אפס אפורה פתוחה",
+      "category": "stone",
+      "width": 1024,
+      "height": 1536,
+      "featured": true
+    },
+    {
+      "id": 28,
+      "title": "דלת מעוצבת · צילום 28",
+      "category": "other",
+      "width": 1024,
+      "height": 1536,
+      "featured": false
+    },
+    {
+      "id": 29,
+      "title": "דלת מעוצבת · צילום 29",
+      "category": "wood",
+      "width": 1200,
+      "height": 1600,
+      "featured": false
+    },
+    {
+      "id": 30,
+      "title": "דלת מעוצבת · צילום 30",
+      "category": "wood",
+      "width": 1200,
+      "height": 1600,
+      "featured": false
+    },
+    {
+      "id": 31,
+      "title": "דלת אבן באור יום",
+      "category": "stone",
+      "width": 1200,
+      "height": 1600,
+      "featured": true
+    },
+    {
+      "id": 32,
+      "title": "דלת פתוחה אל חלל הבית",
+      "category": "metal",
+      "width": 1024,
+      "height": 1536,
+      "featured": true
+    },
+    {
+      "id": 33,
+      "title": "דלת גרפיט ופרטי הידית",
+      "category": "metal",
+      "width": 1224,
+      "height": 1933,
+      "featured": true
+    },
+    {
+      "id": 34,
+      "title": "דלת מעוצבת · צילום 34",
+      "category": "stone",
+      "width": 1200,
+      "height": 1600,
+      "featured": false
+    },
+    {
+      "id": 35,
+      "title": "דלת פנים לבנה",
+      "category": "light",
+      "width": 1200,
+      "height": 1600,
+      "featured": true
+    },
+    {
+      "id": 36,
+      "title": "דלת מעוצבת · צילום 36",
+      "category": "wood",
+      "width": 1200,
+      "height": 1600,
+      "featured": false
+    },
+    {
+      "id": 37,
+      "title": "דלת מעוצבת · צילום 37",
+      "category": "wood",
+      "width": 1200,
+      "height": 1600,
+      "featured": false
+    },
+    {
+      "id": 38,
+      "title": "דלת מעוצבת · צילום 38",
+      "category": "light",
+      "width": 1024,
+      "height": 1536,
+      "featured": false
+    },
+    {
+      "id": 39,
+      "title": "דלת ברונזה בכניסת אבן מעוטרת",
+      "category": "metal",
+      "width": 1024,
+      "height": 1536,
+      "featured": true
+    },
+    {
+      "id": 40,
+      "title": "דלת מעוצבת · צילום 40",
+      "category": "wood",
+      "width": 1200,
+      "height": 1600,
+      "featured": false
+    },
+    {
+      "id": 41,
+      "title": "דלת מעוצבת · צילום 41",
+      "category": "metal",
+      "width": 1200,
+      "height": 1600,
+      "featured": false
+    }
+  ],
+  "featuredOrder": [
+    39,
+    27,
+    9,
+    1,
+    16,
+    18,
+    26,
+    31,
+    11,
+    25,
+    32,
+    33,
+    4,
+    21,
+    24,
+    35
+  ]
+}

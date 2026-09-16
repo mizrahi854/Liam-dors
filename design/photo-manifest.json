@@ -1,0 +1,731 @@
+[
+  {
+    "id": 1,
+    "path": "design/source-photos/01.jpg",
+    "bytes": 12133,
+    "source": "original JPG; numbering by alphabetical filename per supplied spec",
+    "original_path": "assets/photos/190d9e9a-a94a-4552-929e-98d7bc750406.JPG",
+    "original_dimensions": [
+      1200,
+      1600
+    ],
+    "gallery_included": true,
+    "category_proposed": "אבן ופורצלן",
+    "editorial_sections_proposed": [
+      "הצגת האוסף"
+    ],
+    "review_required": false,
+    "featured_mobile": true,
+    "featured_order": 4
+  },
+  {
+    "id": 2,
+    "path": "design/source-photos/02.jpg",
+    "bytes": 10932,
+    "source": "original JPG; numbering by alphabetical filename per supplied spec",
+    "original_path": "assets/photos/1e55d3dc-78ce-4285-ab81-545f37410877.JPG",
+    "original_dimensions": [
+      1200,
+      1600
+    ],
+    "gallery_included": true,
+    "category_proposed": "עץ",
+    "editorial_sections_proposed": [],
+    "review_required": false,
+    "featured_mobile": false,
+    "featured_order": null
+  },
+  {
+    "id": 3,
+    "path": "design/source-photos/03.jpg",
+    "bytes": 15034,
+    "source": "original JPG; numbering by alphabetical filename per supplied spec",
+    "original_path": "assets/photos/2abad382-df37-4cf8-a655-9e06e996d82c.JPG",
+    "original_dimensions": [
+      1200,
+      1600
+    ],
+    "gallery_included": true,
+    "category_proposed": "עץ",
+    "editorial_sections_proposed": [],
+    "review_required": false,
+    "featured_mobile": false,
+    "featured_order": null
+  },
+  {
+    "id": 4,
+    "path": "design/source-photos/04.jpg",
+    "bytes": 9595,
+    "source": "original JPG; numbering by alphabetical filename per supplied spec",
+    "original_path": "assets/photos/2af85d81-f5e6-4a10-9d2c-785bd9019233.JPG",
+    "original_dimensions": [
+      1024,
+      1536
+    ],
+    "gallery_included": true,
+    "category_proposed": "קורטן וברונזה",
+    "editorial_sections_proposed": [
+      "ניסיון וסיום"
+    ],
+    "review_required": false,
+    "featured_mobile": true,
+    "featured_order": 13
+  },
+  {
+    "id": 5,
+    "path": "design/source-photos/05.jpg",
+    "bytes": 11251,
+    "source": "original JPG; numbering by alphabetical filename per supplied spec",
+    "original_path": "assets/photos/2afec90b-3efb-4f59-8781-5101f7521fd6.JPG",
+    "original_dimensions": [
+      667,
+      1000
+    ],
+    "gallery_included": true,
+    "category_proposed": "קורטן וברונזה",
+    "editorial_sections_proposed": [],
+    "review_required": false,
+    "featured_mobile": false,
+    "featured_order": null
+  },
+  {
+    "id": 6,
+    "path": "design/source-photos/06.jpg",
+    "bytes": 13675,
+    "source": "original JPG; numbering by alphabetical filename per supplied spec",
+    "original_path": "assets/photos/3067e4fd-4a8a-4620-9226-6be80cd3efd3.JPG",
+    "original_dimensions": [
+      1200,
+      1600
+    ],
+    "gallery_included": true,
+    "category_proposed": "אנתרציט",
+    "editorial_sections_proposed": [],
+    "review_required": false,
+    "featured_mobile": false,
+    "featured_order": null
+  },
+  {
+    "id": 7,
+    "path": "design/source-photos/07.jpg",
+    "bytes": 12055,
+    "source": "original JPG; numbering by alphabetical filename per supplied spec",
+    "original_path": "assets/photos/32366318-8b06-4733-bf38-5fb2982ab42f.JPG",
+    "original_dimensions": [
+      720,
+      1600
+    ],
+    "gallery_included": true,
+    "category_proposed": "עץ",
+    "editorial_sections_proposed": [],
+    "review_required": false,
+    "featured_mobile": false,
+    "featured_order": null
+  },
+  {
+    "id": 8,
+    "path": "design/source-photos/08.jpg",
+    "bytes": 10489,
+    "source": "original JPG; numbering by alphabetical filename per supplied spec",
+    "original_path": "assets/photos/3902031e-7296-4df6-bff9-73fad3f442b7.JPG",
+    "original_dimensions": [
+      1024,
+      1536
+    ],
+    "gallery_included": true,
+    "category_proposed": "עץ",
+    "editorial_sections_proposed": [],
+    "review_required": false,
+    "featured_mobile": false,
+    "featured_order": null
+  },
+  {
+    "id": 9,
+    "path": "design/source-photos/09.jpg",
+    "bytes": 16801,
+    "source": "original JPG; numbering by alphabetical filename per supplied spec",
+    "original_path": "assets/photos/394a6bc2-3b6a-4276-909b-c78f9e1bd0bb.JPG",
+    "original_dimensions": [
+      1200,
+      1600
+    ],
+    "gallery_included": true,
+    "category_proposed": "אנתרציט",
+    "editorial_sections_proposed": [
+      "הצגת האוסף"
+    ],
+    "review_required": false,
+    "featured_mobile": true,
+    "featured_order": 3
+  },
+  {
+    "id": 10,
+    "path": "design/source-photos/10.jpg",
+    "bytes": 11548,
+    "source": "original JPG; numbering by alphabetical filename per supplied spec",
+    "original_path": "assets/photos/40e6df71-4a4d-4421-9269-7b0b48929ac9.JPG",
+    "original_dimensions": [
+      1200,
+      1600
+    ],
+    "gallery_included": true,
+    "category_proposed": "לבן ופנים",
+    "editorial_sections_proposed": [],
+    "review_required": false,
+    "featured_mobile": false,
+    "featured_order": null
+  },
+  {
+    "id": 11,
+    "path": "design/source-photos/11.jpg",
+    "bytes": 4996,
+    "source": "original JPG; numbering by alphabetical filename per supplied spec",
+    "original_path": "assets/photos/4e193eb0-038f-4043-99b2-f00b0aaf1e94.JPG",
+    "original_dimensions": [
+      1105,
+      650
+    ],
+    "gallery_included": true,
+    "category_proposed": "אנתרציט",
+    "editorial_sections_proposed": [
+      "פרזול ואטימה"
+    ],
+    "review_required": false,
+    "featured_mobile": true,
+    "featured_order": 9
+  },
+  {
+    "id": 12,
+    "path": "design/source-photos/12.jpg",
+    "bytes": 8803,
+    "source": "original JPG; numbering by alphabetical filename per supplied spec",
+    "original_path": "assets/photos/5808b61a-f050-4791-8cff-a99885e50467.JPG",
+    "original_dimensions": [
+      945,
+      2048
+    ],
+    "gallery_included": true,
+    "category_proposed": "אבן ופורצלן",
+    "editorial_sections_proposed": [],
+    "review_required": true,
+    "featured_mobile": false,
+    "featured_order": null
+  },
+  {
+    "id": 13,
+    "path": "design/source-photos/13.jpg",
+    "bytes": 14816,
+    "source": "original JPG; numbering by alphabetical filename per supplied spec",
+    "original_path": "assets/photos/62c99079-16e2-4149-adc3-e1dc9b043d0d.JPG",
+    "original_dimensions": [
+      1200,
+      1600
+    ],
+    "gallery_included": true,
+    "category_proposed": "קורטן וברונזה",
+    "editorial_sections_proposed": [],
+    "review_required": false,
+    "featured_mobile": false,
+    "featured_order": null
+  },
+  {
+    "id": 14,
+    "path": "design/source-photos/14.jpg",
+    "bytes": 9343,
+    "source": "original JPG; numbering by alphabetical filename per supplied spec",
+    "original_path": "assets/photos/62d85d0a-6b5d-4931-ad1c-74ed73e914a6.JPG",
+    "original_dimensions": [
+      1026,
+      1824
+    ],
+    "gallery_included": true,
+    "category_proposed": "קורטן וברונזה",
+    "editorial_sections_proposed": [],
+    "review_required": false,
+    "featured_mobile": false,
+    "featured_order": null
+  },
+  {
+    "id": 15,
+    "path": "design/source-photos/15.jpg",
+    "bytes": 9588,
+    "source": "original JPG; numbering by alphabetical filename per supplied spec",
+    "original_path": "assets/photos/69c9736a-0e10-46cb-bf21-a7de5ba2ee0d.JPG",
+    "original_dimensions": [
+      667,
+      1000
+    ],
+    "gallery_included": true,
+    "category_proposed": "חזיתות ופרטי פרויקט — לבדיקה",
+    "editorial_sections_proposed": [],
+    "review_required": true,
+    "featured_mobile": false,
+    "featured_order": null
+  },
+  {
+    "id": 16,
+    "path": "design/source-photos/16.jpg",
+    "bytes": 10943,
+    "source": "original JPG; numbering by alphabetical filename per supplied spec",
+    "original_path": "assets/photos/6d4cd2a5-7b43-4c5b-a287-52e166971fc7.JPG",
+    "original_dimensions": [
+      1200,
+      1600
+    ],
+    "gallery_included": true,
+    "category_proposed": "אבן ופורצלן",
+    "editorial_sections_proposed": [
+      "מבנה וחיפויים"
+    ],
+    "review_required": false,
+    "featured_mobile": true,
+    "featured_order": 5
+  },
+  {
+    "id": 17,
+    "path": "design/source-photos/17.jpg",
+    "bytes": 8567,
+    "source": "original JPG; numbering by alphabetical filename per supplied spec",
+    "original_path": "assets/photos/6d802987-177e-4a8f-99cb-a52e057895d1.JPG",
+    "original_dimensions": [
+      1536,
+      2048
+    ],
+    "gallery_included": true,
+    "category_proposed": "אנתרציט",
+    "editorial_sections_proposed": [],
+    "review_required": false,
+    "featured_mobile": false,
+    "featured_order": null
+  },
+  {
+    "id": 18,
+    "path": "design/source-photos/18.jpg",
+    "bytes": 10389,
+    "source": "original JPG; numbering by alphabetical filename per supplied spec",
+    "original_path": "assets/photos/6fb4c62d-c770-482b-9a72-82477e12d668.JPG",
+    "original_dimensions": [
+      1536,
+      2048
+    ],
+    "gallery_included": true,
+    "category_proposed": "אבן ופורצלן",
+    "editorial_sections_proposed": [
+      "מבנה וחיפויים"
+    ],
+    "review_required": false,
+    "featured_mobile": true,
+    "featured_order": 6
+  },
+  {
+    "id": 19,
+    "path": "design/source-photos/19.jpg",
+    "bytes": 12796,
+    "source": "original JPG; numbering by alphabetical filename per supplied spec",
+    "original_path": "assets/photos/711a2354-8f5e-4aa5-a94d-a960e46d6cb0.JPG",
+    "original_dimensions": [
+      667,
+      1000
+    ],
+    "gallery_included": true,
+    "category_proposed": "אנתרציט",
+    "editorial_sections_proposed": [],
+    "review_required": false,
+    "featured_mobile": false,
+    "featured_order": null
+  },
+  {
+    "id": 20,
+    "path": "design/source-photos/20.jpg",
+    "bytes": 18866,
+    "source": "original JPG; numbering by alphabetical filename per supplied spec",
+    "original_path": "assets/photos/72878fac-19c7-4c71-895c-8fa33d6b6fd0.JPG",
+    "original_dimensions": [
+      1200,
+      1600
+    ],
+    "gallery_included": true,
+    "category_proposed": "אנתרציט",
+    "editorial_sections_proposed": [],
+    "review_required": false,
+    "featured_mobile": false,
+    "featured_order": null
+  },
+  {
+    "id": 21,
+    "path": "design/source-photos/21.jpg",
+    "bytes": 7112,
+    "source": "original JPG; numbering by alphabetical filename per supplied spec",
+    "original_path": "assets/photos/72c0458d-999e-457d-b176-2e35d0b18c7c.JPG",
+    "original_dimensions": [
+      1000,
+      667
+    ],
+    "gallery_included": true,
+    "category_proposed": "קורטן וברונזה",
+    "editorial_sections_proposed": [
+      "ניסיון וסיום"
+    ],
+    "review_required": false,
+    "featured_mobile": true,
+    "featured_order": 14
+  },
+  {
+    "id": 22,
+    "path": "design/source-photos/22.jpg",
+    "bytes": 10458,
+    "source": "original JPG; numbering by alphabetical filename per supplied spec",
+    "original_path": "assets/photos/751e651a-2b0f-4952-ab8a-cd96ae6ecf3e.JPG",
+    "original_dimensions": [
+      1200,
+      1600
+    ],
+    "gallery_included": true,
+    "category_proposed": "אנתרציט",
+    "editorial_sections_proposed": [],
+    "review_required": false,
+    "featured_mobile": false,
+    "featured_order": null
+  },
+  {
+    "id": 23,
+    "path": "design/source-photos/23.jpg",
+    "bytes": 15039,
+    "source": "original JPG; numbering by alphabetical filename per supplied spec",
+    "original_path": "assets/photos/80574c49-fa20-4b3d-a387-1648933deeb3.JPG",
+    "original_dimensions": [
+      1200,
+      1600
+    ],
+    "gallery_included": true,
+    "category_proposed": "חזיתות ופרטי פרויקט — לבדיקה",
+    "editorial_sections_proposed": [],
+    "review_required": true,
+    "featured_mobile": false,
+    "featured_order": null
+  },
+  {
+    "id": 24,
+    "path": "design/source-photos/24.jpg",
+    "bytes": 5632,
+    "source": "original JPG; numbering by alphabetical filename per supplied spec",
+    "original_path": "assets/photos/821c4c9f-7ac5-4990-b589-e5509210a20c.JPG",
+    "original_dimensions": [
+      1271,
+      799
+    ],
+    "gallery_included": true,
+    "category_proposed": "לבן ופנים",
+    "editorial_sections_proposed": [
+      "ניסיון וסיום"
+    ],
+    "review_required": false,
+    "featured_mobile": true,
+    "featured_order": 15
+  },
+  {
+    "id": 25,
+    "path": "design/source-photos/25.jpg",
+    "bytes": 11585,
+    "source": "original JPG; numbering by alphabetical filename per supplied spec",
+    "original_path": "assets/photos/a5f9cb3c-d1a7-4ed5-849d-86bd9af0c3aa.JPG",
+    "original_dimensions": [
+      1200,
+      1600
+    ],
+    "gallery_included": true,
+    "category_proposed": "אנתרציט",
+    "editorial_sections_proposed": [
+      "פרזול ואטימה"
+    ],
+    "review_required": false,
+    "featured_mobile": true,
+    "featured_order": 10
+  },
+  {
+    "id": 26,
+    "path": "design/source-photos/26.jpg",
+    "bytes": 9523,
+    "source": "original JPG; numbering by alphabetical filename per supplied spec",
+    "original_path": "assets/photos/aa0376b5-a0db-4120-8613-ae25ceedf6e5.JPG",
+    "original_dimensions": [
+      1512,
+      2016
+    ],
+    "gallery_included": true,
+    "category_proposed": "אבן ופורצלן",
+    "editorial_sections_proposed": [
+      "מבנה וחיפויים"
+    ],
+    "review_required": false,
+    "featured_mobile": true,
+    "featured_order": 7
+  },
+  {
+    "id": 27,
+    "path": "design/source-photos/27.jpg",
+    "bytes": 10699,
+    "source": "original JPG; numbering by alphabetical filename per supplied spec",
+    "original_path": "assets/photos/ab5f97d8-b28f-4b54-a468-75bf27bcf286.JPG",
+    "original_dimensions": [
+      1024,
+      1536
+    ],
+    "gallery_included": true,
+    "category_proposed": "אבן ופורצלן",
+    "editorial_sections_proposed": [
+      "הצגת האוסף"
+    ],
+    "review_required": false,
+    "featured_mobile": true,
+    "featured_order": 2
+  },
+  {
+    "id": 28,
+    "path": "design/source-photos/28.jpg",
+    "bytes": 16393,
+    "source": "original JPG; numbering by alphabetical filename per supplied spec",
+    "original_path": "assets/photos/aceff285-c5ac-4dd9-90cf-2faa5137e967.JPG",
+    "original_dimensions": [
+      1024,
+      1536
+    ],
+    "gallery_included": true,
+    "category_proposed": "חזיתות ופרטי פרויקט — לבדיקה",
+    "editorial_sections_proposed": [],
+    "review_required": true,
+    "featured_mobile": false,
+    "featured_order": null
+  },
+  {
+    "id": 29,
+    "path": "design/source-photos/29.jpg",
+    "bytes": 10044,
+    "source": "original JPG; numbering by alphabetical filename per supplied spec",
+    "original_path": "assets/photos/b2bf8b15-5e9a-4262-b9e2-796bd49d214b.JPG",
+    "original_dimensions": [
+      1200,
+      1600
+    ],
+    "gallery_included": true,
+    "category_proposed": "עץ",
+    "editorial_sections_proposed": [],
+    "review_required": false,
+    "featured_mobile": false,
+    "featured_order": null
+  },
+  {
+    "id": 30,
+    "path": "design/source-photos/30.jpg",
+    "bytes": 13523,
+    "source": "original JPG; numbering by alphabetical filename per supplied spec",
+    "original_path": "assets/photos/b7f1ea38-c212-462e-bab6-7738bc7da9b8.JPG",
+    "original_dimensions": [
+      1200,
+      1600
+    ],
+    "gallery_included": true,
+    "category_proposed": "עץ",
+    "editorial_sections_proposed": [],
+    "review_required": false,
+    "featured_mobile": false,
+    "featured_order": null
+  },
+  {
+    "id": 31,
+    "path": "design/source-photos/31.jpg",
+    "bytes": 13038,
+    "source": "original JPG; numbering by alphabetical filename per supplied spec",
+    "original_path": "assets/photos/ba21f309-3040-436a-b013-14f6730c0139.JPG",
+    "original_dimensions": [
+      1200,
+      1600
+    ],
+    "gallery_included": true,
+    "category_proposed": "אבן ופורצלן",
+    "editorial_sections_proposed": [
+      "מבנה וחיפויים"
+    ],
+    "review_required": false,
+    "featured_mobile": true,
+    "featured_order": 8
+  },
+  {
+    "id": 32,
+    "path": "design/source-photos/32.jpg",
+    "bytes": 10539,
+    "source": "original JPG; numbering by alphabetical filename per supplied spec",
+    "original_path": "assets/photos/c95efc36-aafc-448e-85ff-aa1397a66e0f.JPG",
+    "original_dimensions": [
+      1024,
+      1536
+    ],
+    "gallery_included": true,
+    "category_proposed": "אנתרציט",
+    "editorial_sections_proposed": [
+      "פרזול ואטימה"
+    ],
+    "review_required": false,
+    "featured_mobile": true,
+    "featured_order": 11
+  },
+  {
+    "id": 33,
+    "path": "design/source-photos/33.jpg",
+    "bytes": 6277,
+    "source": "original JPG; numbering by alphabetical filename per supplied spec",
+    "original_path": "assets/photos/ca8273f9-a5ae-43d8-bdca-dd7ce9b302bc.JPG",
+    "original_dimensions": [
+      1224,
+      1933
+    ],
+    "gallery_included": true,
+    "category_proposed": "אנתרציט",
+    "editorial_sections_proposed": [
+      "פרזול ואטימה"
+    ],
+    "review_required": false,
+    "featured_mobile": true,
+    "featured_order": 12
+  },
+  {
+    "id": 34,
+    "path": "design/source-photos/34.jpg",
+    "bytes": 12449,
+    "source": "original JPG; numbering by alphabetical filename per supplied spec",
+    "original_path": "assets/photos/dd28c976-77af-4d1b-9de2-989bc911701c.JPG",
+    "original_dimensions": [
+      1200,
+      1600
+    ],
+    "gallery_included": true,
+    "category_proposed": "אבן ופורצלן",
+    "editorial_sections_proposed": [],
+    "review_required": false,
+    "featured_mobile": false,
+    "featured_order": null
+  },
+  {
+    "id": 35,
+    "path": "design/source-photos/35.jpg",
+    "bytes": 11021,
+    "source": "original JPG; numbering by alphabetical filename per supplied spec",
+    "original_path": "assets/photos/dd8538c2-946e-4570-b36f-46d4896b727a.JPG",
+    "original_dimensions": [
+      1200,
+      1600
+    ],
+    "gallery_included": true,
+    "category_proposed": "לבן ופנים",
+    "editorial_sections_proposed": [
+      "ניסיון וסיום"
+    ],
+    "review_required": false,
+    "featured_mobile": true,
+    "featured_order": 16
+  },
+  {
+    "id": 36,
+    "path": "design/source-photos/36.jpg",
+    "bytes": 10916,
+    "source": "original JPG; numbering by alphabetical filename per supplied spec",
+    "original_path": "assets/photos/e1e72a6d-38ce-4b09-8940-eb5f13115a3f.JPG",
+    "original_dimensions": [
+      1200,
+      1600
+    ],
+    "gallery_included": true,
+    "category_proposed": "עץ",
+    "editorial_sections_proposed": [],
+    "review_required": false,
+    "featured_mobile": false,
+    "featured_order": null
+  },
+  {
+    "id": 37,
+    "path": "design/source-photos/37.jpg",
+    "bytes": 10718,
+    "source": "original JPG; numbering by alphabetical filename per supplied spec",
+    "original_path": "assets/photos/e27c0cdf-6f39-4684-8ec7-c7dbebb492e8.JPG",
+    "original_dimensions": [
+      1200,
+      1600
+    ],
+    "gallery_included": true,
+    "category_proposed": "עץ",
+    "editorial_sections_proposed": [],
+    "review_required": false,
+    "featured_mobile": false,
+    "featured_order": null
+  },
+  {
+    "id": 38,
+    "path": "design/source-photos/38.jpg",
+    "bytes": 11541,
+    "source": "original JPG; numbering by alphabetical filename per supplied spec",
+    "original_path": "assets/photos/f3e5c1e8-9f42-4cab-9d70-ce122f499118.JPG",
+    "original_dimensions": [
+      1024,
+      1536
+    ],
+    "gallery_included": true,
+    "category_proposed": "לבן ופנים",
+    "editorial_sections_proposed": [],
+    "review_required": false,
+    "featured_mobile": false,
+    "featured_order": null
+  },
+  {
+    "id": 39,
+    "path": "design/source-photos/39.jpg",
+    "bytes": 12081,
+    "source": "original JPG; numbering by alphabetical filename per supplied spec",
+    "original_path": "assets/photos/f689a668-8944-40a4-9506-8794cf8cafb4.JPG",
+    "original_dimensions": [
+      1024,
+      1536
+    ],
+    "gallery_included": true,
+    "category_proposed": "קורטן וברונזה",
+    "editorial_sections_proposed": [
+      "הצגת האוסף"
+    ],
+    "review_required": false,
+    "featured_mobile": true,
+    "featured_order": 1
+  },
+  {
+    "id": 40,
+    "path": "design/source-photos/40.jpg",
+    "bytes": 11057,
+    "source": "original JPG; numbering by alphabetical filename per supplied spec",
+    "original_path": "assets/photos/f86620b6-df1d-483f-8ce2-6ffb25d327d0.JPG",
+    "original_dimensions": [
+      1200,
+      1600
+    ],
+    "gallery_included": true,
+    "category_proposed": "עץ",
+    "editorial_sections_proposed": [],
+    "review_required": false,
+    "featured_mobile": false,
+    "featured_order": null
+  },
+  {
+    "id": 41,
+    "path": "design/source-photos/41.jpg",
+    "bytes": 11316,
+    "source": "original JPG; numbering by alphabetical filename per supplied spec",
+    "original_path": "assets/photos/fdef8626-8c1c-43af-8310-c436e15661b2.JPG",
+    "original_dimensions": [
+      1200,
+      1600
+    ],
+    "gallery_included": true,
+    "category_proposed": "קורטן וברונזה",
+    "editorial_sections_proposed": [],
+    "review_required": false,
+    "featured_mobile": false,
+    "featured_order": null
+  }
+]
