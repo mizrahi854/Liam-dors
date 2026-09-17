@@ -36,6 +36,10 @@ npm run check
 
 ## מגבלות שנותרו
 
-בדיקת דפדפן מקיפה נחסמה בבדיקת האישור האוטומטית עקב מגבלת שימוש. לא הורצה בדיקה חלופית העוקפת את החסימה. לכן אין עדיין אימות של הגרסה הזו ב־Safari/iPhone, טאבלטים, VoiceOver, NVDA או TalkBack. מסמך הנגישות מציין זאת במפורש; אין הבטחה לעמידה מלאה בתקן או לחסינות מתביעות.
+בוצעה בדיקת Chromium ו־WebKit ברוחבים 320–1440, כולל טעינת גופנים ואייקונים, גלריה ותפריט. ההבדל בין הגרסה המקומית ל־GitHub לא שוחזר בסביבה נקייה. נוספו התאמות דפדפן ומניעת ערבוב קבצים ישנים. בדיקת נגישות מלאה ובדיקות במכשירים פיזיים עדיין פתוחות.
+
+## פרסום ל־GitHub Pages
+
+מריצים `npm run build` לפני העלאה. מעלים את `site/dist` בשלמותו יחד עם קובץ הכניסה הראשי ו־`.nojekyll`. הגופנים מקומיים, האייקונים מוטמעים והסקריפט מעדכן חתימות תוכן כדי למנוע קבצים ישנים במטמון. חבילת הקוד כוללת את מבנה התיקיות המלא.
 
 מקור הנחיות: [Skills IL — Israeli accessibility](https://github.com/skills-il/localization/blob/master/israeli-accessibility-compliance/SKILL.md), [מדריך הנציבות](https://www.gov.il/he/pages/declaration_website_accessibility?chapterIndex=1), [W3C — שליטה בקרוסלות](https://www.w3.org/WAI/tutorials/carousels/animations/).

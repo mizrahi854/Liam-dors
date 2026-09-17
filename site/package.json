@@ -7,6 +7,8 @@
   "scripts": {
     "dev": "node scripts/serve.mjs",
     "start": "node scripts/serve.mjs",
-    "check": "node --check dist/app.js && node --check dist/preferences.js && node scripts/check.mjs && node scripts/check-ui.mjs"
+    "check": "node --check dist/app.js && node --check dist/preferences.js && node scripts/check.mjs && node scripts/check-ui.mjs",
+    "prepare:publish": "node scripts/prepare-publish.mjs",
+    "build": "npm run prepare:publish && npm run check"
   }
 }

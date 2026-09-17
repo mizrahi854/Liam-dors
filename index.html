@@ -16,7 +16,7 @@
       2. JS + replace  — מיידי, ולא משאיר את הדף הזה בהיסטוריה
       3. קישור גלוי    — אם שתי הראשונות נחסמו, עדיין אפשר להיכנס
   -->
-  <meta http-equiv="refresh" content="0; url=site/dist/index.html">
+  <meta http-equiv="refresh" content="0; url=site/dist/index.html?v=1fb6ded66c08">
   <link rel="canonical" href="site/dist/index.html">
 
   <style>
@@ -42,12 +42,12 @@
 <body>
   <main>
     <p>מעבירים אותך לאתר…</p>
-    <p><a href="site/dist/index.html">כניסה לאתר</a></p>
+    <p><a href="site/dist/index.html?v=1fb6ded66c08">כניסה לאתר</a></p>
   </main>
 
   <script>
     // replace ולא href — כדי שכפתור "אחורה" בדפדפן לא יחזיר לכאן ויתחיל לולאה
-    location.replace("site/dist/index.html");
+    location.replace("site/dist/index.html?v=1fb6ded66c08" + location.hash);
   </script>
 </body>
 </html>

@@ -8,7 +8,8 @@ const navigation = $('#navigation');
 const lightbox = $('#lightbox');
 const hero = $('#hero');
 const motionReduced = () => reduceMotion.matches || document.documentElement.classList.contains('a11y-motion');
-const icon = name => `<svg class="line-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#icon-${name}"></use></svg>`;
+const iconPaths = {"left": "<path d=\"M20 12H4m6-6-6 6 6 6\"></path>", "right": "<path d=\"M4 12h16m-6-6 6 6-6 6\"></path>", "up-right": "<path d=\"M6 18 18 6M6 6h12v12\"></path>", "down": "<path d=\"M12 4v16m-6-6 6 6 6-6\"></path>", "play": "<path d=\"m8 5 11 7-11 7Z\"></path>", "pause": "<path d=\"M8 5v14M16 5v14\"></path>", "close": "<path d=\"m6 6 12 12M6 18 18 6\"></path>", "access": "<path d=\"M12 8v6m-7-5 7 2 7-2M8 21l4-7 4 7\"></path><circle cx=\"12\" cy=\"4\" r=\"2\"></circle>", "plus": "<path d=\"M12 5v14M5 12h14\"></path>"};
+const icon = name => `<svg class="line-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">${iconPaths[name] || ""}</svg>`;
 let photos = [], orderedPhotos = [], filter = 'all', activePhotos = [];
 let galleryOpen = false, catalogScroll = 0, galleryScroll = 0;
 let galleryOpener = null;
@@ -308,7 +309,7 @@ $$('.reveal').forEach(element => revealObserver.observe(element));
 document.documentElement.classList.add('js-ready');
 
 try {
-  const response = await fetch('catalog.json');
+  const response = await fetch('catalog.json?v=988bb4142db2');
   if (!response.ok) throw new Error(`Catalog ${response.status}`);
   const data = await response.json();
   photos = data.photos;

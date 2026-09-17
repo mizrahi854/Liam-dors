@@ -12,9 +12,9 @@ assert.equal(new Set(data.featuredOrder).size,16);
 for(const p of data.photos)for(const w of [480,960,1440])assert(existsSync(resolve(root,`media/photos/${String(p.id).padStart(2,'0')}-${w}.webp`)));
 for(const [,url] of html.matchAll(/(?:src|href|poster|data-src)="([^"#]+)"/g)){
   if(/^(https?:|tel:|mailto:)/.test(url))continue;
-  assert(existsSync(resolve(root,url)),`Missing asset: ${url}`);
+  assert(existsSync(resolve(root,url.split("?")[0])),`Missing asset: ${url}`);
 }
-for(const [,url] of css.matchAll(/url\(['"]?([^)'"\s]+)['"]?\)/g))assert(existsSync(resolve(root,url)),`Missing CSS asset: ${url}`);
+for(const [,url] of css.matchAll(/url\(['"]?([^)'"\s]+)['"]?\)/g))assert(existsSync(resolve(root,url.split("?")[0])),`Missing CSS asset: ${url}`);
 const ids=[...html.matchAll(/\bid="([^"]+)"/g)].map(m=>m[1]);
 assert.equal(new Set(ids).size,ids.length,'Duplicate IDs');
 assert(html.lastIndexOf('id="craftsmanship"')>html.indexOf('class="section final-selection"'),'Craft must be last');

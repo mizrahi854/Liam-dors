@@ -20,7 +20,7 @@ for(const name of ['index.html','accessibility.html']){
  assert(/<html[^>]*lang="he"/.test(text));assert(/<html[^>]*dir="rtl"/.test(text));
  for(const [,url] of text.matchAll(/(?:src|href|poster|data-src)="([^"#]+)"/g)){
   if(/^(https?:|tel:|mailto:)/.test(url))continue;
-  assert(existsSync(resolve(root,url)),`${name}: missing ${url}`);
+  assert(existsSync(resolve(root,url.split("?")[0])),`${name}: missing ${url}`);
  }
 }
 const values=['contrast','links','font','headings','cursor','motion'];
