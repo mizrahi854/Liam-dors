@@ -11,7 +11,7 @@ const order=[...html.matchAll(/src="media\/hero-(gray|brown|garden)-960.webp"/g)
 assert.deepEqual(order,['gray','brown','garden']);
 assert(js.includes('}, 3000)'),'Three-second rotation');
 assert(js.includes('clearTimeout(slideTimer)') && js.includes('document.hidden') && js.includes('heroFocused'));
-for(const tag of html.matchAll(/<video\b[^>]*>/g))for(const flag of ['autoplay','muted','playsinline','loop','aria-describedby'])assert(tag[0].includes(flag),`Missing video ${flag}`);
+for(const tag of html.matchAll(/<video\b[^>]*class="ambient-video"[^>]*>/g))for(const flag of ['autoplay','muted','playsinline','loop','aria-describedby'])assert(tag[0].includes(flag),`Missing video ${flag}`);
 assert(css.includes('@media(min-width:700px)')&&css.includes('@media(min-width:1100px)'));
 assert(html.includes('accessibility.html')&&html.includes('data-open-accessibility'));
 assert(existsSync(resolve(root,'accessibility.html')));

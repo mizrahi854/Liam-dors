@@ -256,7 +256,7 @@ function ensureVideo(video) {
   if (!video.getAttribute('src')) {video.src = video.dataset.src; video.load();}
 }
 function playVideo(video, manual = false) {
-  if (document.hidden || galleryOpen || scrollLocked) return;
+  if (document.hidden || galleryOpen || scrollLocked || document.querySelector('#explanation-player')?.open) return;
   video.muted = true; video.defaultMuted = true;
   ensureVideo(video);
   videos.filter(other => other !== video).forEach(other => other.pause());
@@ -271,7 +271,7 @@ function syncVideoButton(video) {
   button.setAttribute('aria-pressed', String(!video.paused));
 }
 function chooseVideo() {
-  if (document.hidden || galleryOpen || scrollLocked) {pauseAll(); return;}
+  if (document.hidden || galleryOpen || scrollLocked || document.querySelector('#explanation-player')?.open) {pauseAll(); return;}
   const eligible = videos.filter(video => (storage.visible.get(video.id) || 0) > .28 && !storage.paused.has(video.id) && (!motionReduced() || storage.userStarted.has(video.id)) && (!navigator.connection?.saveData || storage.userStarted.has(video.id)));
   const chosen = eligible.sort((a,b) => (storage.visible.get(b.id) || 0) - (storage.visible.get(a.id) || 0))[0];
   videos.forEach(video => {if(video !== chosen) video.pause();});
@@ -299,6 +299,7 @@ videos.forEach(video => {
   });
 });
 document.addEventListener('visibilitychange', chooseVideo);
+document.addEventListener('liam-video-closed', chooseVideo);
 // A real interaction can unlock inline playback in browsers that initially blocked it.
 document.addEventListener('pointerup', event => {if (!event.target.closest('[data-video]')) chooseVideo();}, {passive:true});
 

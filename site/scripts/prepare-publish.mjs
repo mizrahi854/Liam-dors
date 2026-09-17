@@ -5,14 +5,14 @@ const root=resolve(import.meta.dirname,'../dist');
 const hash=name=>createHash('sha256').update(readFileSync(resolve(root,name))).digest('hex').slice(0,12);
 const version=name=>`${name}?v=${hash(name)}`;
 // Each changed font / stylesheet / script gets its own immutable cache identity.
-for(const name of ['styles.css','accessibility.css']){
+for(const name of ['styles.css','accessibility.css','story.css']){
  const file=resolve(root,name);
  const text=readFileSync(file,'utf8').replace(/url\(['"]?([^)'"\s?]+)(?:\?v=[a-f0-9]+)?['"]?\)/g,(_,asset)=>`url('${version(asset)}')`);
  writeFileSync(file,text);
 }
 const app=resolve(root,'app.js');
 writeFileSync(app,readFileSync(app,'utf8').replace(/fetch\('catalog\.json(?:\?v=[a-f0-9]+)?'\)/,`fetch('${version('catalog.json')}')`));
-const assets=['styles.css','accessibility.css','preferences.js','app.js'];
+const assets=['styles.css','accessibility.css','story.css','preferences.js','app.js','story.js'];
 for(const name of ['index.html','accessibility.html']){
  const file=resolve(root,name);let html=readFileSync(file,'utf8');
  for(const asset of assets){const escaped=asset.replaceAll('.','\\.');html=html.replace(new RegExp(`((?:href|src)=")${escaped}(?:\\?v=[a-f0-9]+)?("|&)`,'g'),`$1${version(asset)}$2`);}
