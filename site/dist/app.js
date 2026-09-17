@@ -7,16 +7,13 @@ const header = $('#site-header');
 const navigation = $('#navigation');
 const lightbox = $('#lightbox');
 const hero = $('#hero');
-const stage = $('.hero-stage');
-const heroParts = {
-  front: $('.hero-front'), door: $('.hero-door'), rear: $('.hero-rear'),
-  first: $('.hero-copy-first'), second: $('.hero-copy-second'),
-  cue: $('.scroll-cue'), progress: $('.hero-progress span'),
-};
+const motionReduced = () => reduceMotion.matches || document.documentElement.classList.contains('a11y-motion');
+const icon = name => `<svg class="line-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#icon-${name}"></use></svg>`;
 let photos = [], orderedPhotos = [], filter = 'all', activePhotos = [];
 let galleryOpen = false, catalogScroll = 0, galleryScroll = 0;
+let galleryOpener = null;
 let returnFocus = null, scrollLocked = false, lockedY = 0;
-let currentPhoto = null, animationFrame = 0, heroReady = false;
+let currentPhoto = null, animationFrame = 0;
 const storage = {paused: new Set(), userStarted: new Set(), visible: new Map()};
 const videos = $$('.ambient-video');
 history.scrollRestoration = 'manual';
@@ -24,7 +21,7 @@ $('#year').textContent = new Date().getFullYear();
 
 function photoSource(id, width = 960) { return `media/photos/${String(id).padStart(2, '0')}-${width}.webp`; }
 function photoMarkup(photo, featured = false) {
-  return `<button class="photo-card" data-open-photo="${photo.id}" aria-label="הגדלת התמונה: ${photo.title}"><figure><img src="${photoSource(photo.id, 480)}" srcset="${photoSource(photo.id, 480)} 480w, ${photoSource(photo.id, 960)} 960w, ${photoSource(photo.id, 1440)} 1440w" sizes="${featured ? '(max-width: 560px) calc(100vw - 48px), 512px' : '(max-width: 560px) calc(50vw - 30px), 250px'}" alt="${photo.title}" width="${photo.width}" height="${photo.height}" loading="lazy" decoding="async"><figcaption><span>${photo.title}</span><span aria-hidden="true">↗</span></figcaption></figure></button>`;
+  return `<button class="photo-card" data-open-photo="${photo.id}" aria-label="הגדלת התמונה: ${photo.title}"><figure><img src="${photoSource(photo.id, 480)}" srcset="${photoSource(photo.id, 480)} 480w, ${photoSource(photo.id, 960)} 960w, ${photoSource(photo.id, 1440)} 1440w" sizes="${featured ? '(max-width: 560px) calc(100vw - 48px), 512px' : '(max-width: 560px) calc(50vw - 30px), 250px'}" alt="${photo.title}" width="${photo.width}" height="${photo.height}" loading="lazy" decoding="async"><figcaption><span>${photo.title}</span>${icon("up-right")}</figcaption></figure></button>`;
 }
 function renderGallery() {
   const shown = filter === 'all' ? orderedPhotos : orderedPhotos.filter(photo => photo.category === filter);
@@ -38,14 +35,16 @@ function setGallery(open, y = 0) {
   if (galleryOpen && !open) galleryScroll = scrollLocked ? lockedY : scrollY;
   galleryOpen = open;
   catalog.hidden = open;
+  if (!open && galleryOpener?.isConnected) galleryOpener.focus({preventScroll:true});
   galleryView.hidden = !open;
   document.body.classList.toggle('gallery-mode', open);
   document.title = open ? 'כל הדלתות — LIAM' : 'LIAM — דלתות שהן חלק מהאדריכלות';
   if (open) {renderGallery(); pauseAll();}
   window.scrollTo({top: y, behavior: 'instant'});
-  requestAnimationFrame(updateScroll);
+  requestAnimationFrame(updateScroll); syncSlider();
 }
 function enterGallery() {
+  galleryOpener = document.activeElement;
   if (lightbox.open) closePhoto(false);
   if (!galleryOpen) catalogScroll = scrollY;
   history.pushState({view: 'gallery', catalogScroll}, '', '#doors');
@@ -61,7 +60,7 @@ function lockScroll() {
   lockedY = scrollY;
   scrollLocked = true;
   Object.assign(document.body.style, {position: 'fixed', top: `-${lockedY}px`, width: '100%', overflow: 'hidden'});
-  pauseAll();
+  pauseAll(); syncSlider();
 }
 function unlockScroll() {
   if (!scrollLocked) return;
@@ -69,7 +68,7 @@ function unlockScroll() {
   Object.assign(document.body.style, {position: '', top: '', width: '', overflow: ''});
   scrollLocked = false;
   window.scrollTo({top: y, behavior: 'instant'});
-  requestAnimationFrame(() => {updateScroll(); chooseVideo();});
+  requestAnimationFrame(() => {updateScroll(); chooseVideo(); syncSlider();});
 }
 function showMenu() {
   returnFocus = document.activeElement;
@@ -104,6 +103,7 @@ function showPhoto(id, push = true) {
   image.alt = photo.title;
   image.src = photoSource(id, 1440);
   $('#lightbox-title').textContent = photo.title;
+  $('#lightbox-title').setAttribute('aria-live', 'polite');
   $('#lightbox-count').textContent = `${String(index + 1).padStart(2, '0')} / ${String(activePhotos.length).padStart(2, '0')}`;
   for (const delta of [-1, 1]) {
     const neighbor = activePhotos[(index + delta + activePhotos.length) % activePhotos.length];
@@ -155,8 +155,8 @@ document.addEventListener('click', event => {
     event.preventDefault();
     if (galleryOpen) setGallery(false, catalogScroll);
     history.replaceState(null, '', hash === '#' ? location.pathname : hash);
-    if (hash === '#') window.scrollTo({top:0, behavior: reduceMotion.matches ? 'instant' : 'smooth'});
-    else document.getElementById(hash.slice(1)).scrollIntoView({behavior: reduceMotion.matches ? 'instant' : 'smooth'});
+    if (hash === '#') window.scrollTo({top:0, behavior: motionReduced() ? 'instant' : 'smooth'});
+    else {const target = document.getElementById(hash.slice(1));target.scrollIntoView({behavior: motionReduced() ? 'instant' : 'smooth'});if(target.hasAttribute('tabindex')) target.focus({preventScroll:true});}
   }
 });
 $('#back-to-catalog').addEventListener('click', leaveGallery);
@@ -185,51 +185,70 @@ function route(initial = false) {
 }
 window.addEventListener('popstate', () => route());
 
-const clamp = (v, min = 0, max = 1) => Math.min(max, Math.max(min, v));
+// One gentle transition every three seconds; user interaction always wins.
+const slides = $$('.hero-slide');
+const slideButtons = $$('[data-slide]');
+const slidePause = $('#slider-pause');
+let slideIndex = 0, slideTimer = 0, slidesPaused = false, heroVisible = true;
+let heroHovered = false, heroFocused = false;
+function syncSlider() {
+  clearTimeout(slideTimer);
+  const stopped = slidesPaused || motionReduced();
+  slidePause.innerHTML = icon(stopped ? 'play' : 'pause');
+  slidePause.setAttribute('aria-label', motionReduced() ? 'התמונה הבאה — החלפה אוטומטית כבויה בהעדפות הנגישות' : stopped ? 'הפעלת החלפת התמונות' : 'עצירת החלפת התמונות');
+  if (!stopped && !document.hidden && !scrollLocked && !galleryOpen && heroVisible && !heroHovered && !heroFocused) {
+    slideTimer = setTimeout(() => {setSlide(slideIndex + 1);}, 3000);
+  }
+}
+function setSlide(index, manual = false) {
+  slideIndex = (index + slides.length) % slides.length;
+  slides.forEach((slide, i) => {
+    const active = i === slideIndex;
+    slide.classList.toggle('is-active', active);
+    slide.inert = !active;
+    slide.setAttribute('aria-hidden', String(!active));
+    slideButtons[i].setAttribute('aria-current', String(active));
+  });
+  if (manual) {
+    slidesPaused = true;
+    $('#slide-status').textContent = slideButtons[slideIndex].getAttribute('aria-label');
+  }
+  syncSlider();
+}
+slideButtons.forEach(button => button.addEventListener('click', () => setSlide(Number(button.dataset.slide), true)));
+slidePause.addEventListener('click', () => {
+  if (motionReduced()) {setSlide(slideIndex + 1, true); return;}
+  slidesPaused = !slidesPaused; syncSlider();
+});
+hero.addEventListener('focusin', () => {heroFocused = true; syncSlider();});
+hero.addEventListener('focusout', () => {queueMicrotask(() => {heroFocused = hero.contains(document.activeElement); syncSlider();});});
+hero.addEventListener('mouseenter', () => {if(matchMedia('(hover:hover)').matches){heroHovered = true; syncSlider();}});
+hero.addEventListener('mouseleave', () => {heroHovered = false; syncSlider();});
+hero.addEventListener('keydown', event => {
+  if (!['ArrowLeft','ArrowRight'].includes(event.key)) return;
+  event.preventDefault();setSlide(slideIndex + (event.key === 'ArrowLeft' ? 1 : -1), true);
+});
+let heroTouch = null;
+hero.addEventListener('touchstart', event => {heroTouch = event.touches.length === 1 ? {x:event.touches[0].clientX,y:event.touches[0].clientY} : null;}, {passive:true});
+hero.addEventListener('touchmove', event => {if(event.touches.length > 1) heroTouch = null;}, {passive:true});
+hero.addEventListener('touchend', event => {
+  if (!heroTouch || !event.changedTouches.length) return;
+  const dx = event.changedTouches[0].clientX - heroTouch.x, dy = event.changedTouches[0].clientY - heroTouch.y;
+  if(Math.abs(dx)>60 && Math.abs(dx)>Math.abs(dy)*1.5) setSlide(slideIndex + (dx>0 ? 1 : -1), true);
+  heroTouch = null;
+}, {passive:true});
+new IntersectionObserver(entries => {heroVisible = entries[0].isIntersecting; syncSlider();}, {threshold:.1}).observe(hero);
+document.addEventListener('visibilitychange', syncSlider);
 function updateScroll() {
   animationFrame = 0;
-  if (scrollLocked || galleryOpen) {header.classList.toggle('solid', galleryOpen); return;}
-  const rect = hero.getBoundingClientRect();
-  const extent = hero.offsetHeight - stage.offsetHeight;
-  const p = reduceMotion.matches ? 0 : clamp(-rect.top / Math.max(1, extent));
-  header.classList.toggle('solid', rect.bottom < 85);
-  if (!heroReady) return;
-  if (reduceMotion.matches) {
-    heroParts.first.inert = false;
-    heroParts.first.setAttribute('aria-hidden', 'false');
-    heroParts.first.style.pointerEvents = 'auto';
-    heroParts.second.inert = true;
-    heroParts.second.setAttribute('aria-hidden', 'true');
-    $('a',heroParts.second).tabIndex = -1;
-    heroParts.cue.style.opacity = '1';
-    return;
-  }
-  const hinge = clamp((p - .07) / .59);
-  const dissolve = clamp((p - .11) / .51);
-  const arrival = clamp((p - .51) / .27);
-  heroParts.front.style.opacity = String(1 - dissolve);
-  heroParts.door.style.transform = `rotateY(${-hinge * 74}deg) translateZ(${hinge * 32}px)`;
-  heroParts.door.style.opacity = String(1 - clamp((p - .5) / .2));
-  heroParts.rear.style.transform = `scale(${1.08 - .08 * clamp(p / .72)})`;
-  heroParts.first.style.opacity = String(1 - clamp((p - .02) / .27));
-  heroParts.first.style.transform = `translateY(${-p * 70}px)`;
-  heroParts.second.style.opacity = String(arrival);
-  heroParts.second.style.transform = `translateY(${18 * (1 - arrival)}px)`;
-  heroParts.cue.style.opacity = String(1 - clamp(p / .3));
-  heroParts.progress.style.transform = `scaleX(${p})`;
-  const secondActive = p > .52;
-  heroParts.first.inert = secondActive;
-  heroParts.first.setAttribute('aria-hidden', String(secondActive));
-  heroParts.second.inert = !secondActive;
-  heroParts.second.setAttribute('aria-hidden', String(!secondActive));
-  heroParts.second.style.pointerEvents = secondActive ? 'auto' : 'none';
-  heroParts.first.style.pointerEvents = secondActive ? 'none' : 'auto';
-  $('a',heroParts.second).tabIndex = secondActive ? 0 : -1;
+  if(scrollLocked) return;
+  header.classList.toggle('solid', galleryOpen || hero.getBoundingClientRect().bottom < 90);
 }
 function scheduleScroll() {if (!animationFrame) animationFrame = requestAnimationFrame(updateScroll);}
-window.addEventListener('scroll', scheduleScroll, {passive: true});
-window.addEventListener('resize', scheduleScroll, {passive: true});
-reduceMotion.addEventListener('change', () => {heroReady = !reduceMotion.matches; updateScroll(); chooseVideo();});
+window.addEventListener('scroll', scheduleScroll, {passive:true});
+window.addEventListener('resize', scheduleScroll, {passive:true});
+reduceMotion.addEventListener('change', () => {syncSlider(); chooseVideo();});
+syncSlider();
 
 function pauseAll() {videos.forEach(video => video.pause());}
 function ensureVideo(video) {
@@ -237,6 +256,7 @@ function ensureVideo(video) {
 }
 function playVideo(video, manual = false) {
   if (document.hidden || galleryOpen || scrollLocked) return;
+  video.muted = true; video.defaultMuted = true;
   ensureVideo(video);
   videos.filter(other => other !== video).forEach(other => other.pause());
   if (manual) storage.userStarted.add(video.id);
@@ -245,13 +265,13 @@ function playVideo(video, manual = false) {
 }
 function syncVideoButton(video) {
   const button = $(`[data-video="${video.id}"]`);
-  button.textContent = video.paused ? '▶' : 'Ⅱ';
+  button.innerHTML = icon(video.paused ? 'play' : 'pause');
   button.setAttribute('aria-label', video.paused ? 'הפעלת הסרטון' : 'עצירת הסרטון');
   button.setAttribute('aria-pressed', String(!video.paused));
 }
 function chooseVideo() {
   if (document.hidden || galleryOpen || scrollLocked) {pauseAll(); return;}
-  const eligible = videos.filter(video => (storage.visible.get(video.id) || 0) > .28 && !storage.paused.has(video.id) && (!reduceMotion.matches || storage.userStarted.has(video.id)) && (!navigator.connection?.saveData || storage.userStarted.has(video.id)));
+  const eligible = videos.filter(video => (storage.visible.get(video.id) || 0) > .28 && !storage.paused.has(video.id) && (!motionReduced() || storage.userStarted.has(video.id)) && (!navigator.connection?.saveData || storage.userStarted.has(video.id)));
   const chosen = eligible.sort((a,b) => (storage.visible.get(b.id) || 0) - (storage.visible.get(a.id) || 0))[0];
   videos.forEach(video => {if(video !== chosen) video.pause();});
   if (chosen && chosen.paused) playVideo(chosen);
@@ -278,6 +298,8 @@ videos.forEach(video => {
   });
 });
 document.addEventListener('visibilitychange', chooseVideo);
+// A real interaction can unlock inline playback in browsers that initially blocked it.
+document.addEventListener('pointerup', event => {if (!event.target.closest('[data-video]')) chooseVideo();}, {passive:true});
 
 const revealObserver = new IntersectionObserver(entries => {
   entries.forEach(entry => {if(entry.isIntersecting) {entry.target.classList.add('visible');revealObserver.unobserve(entry.target);}});
@@ -296,11 +318,44 @@ try {
     if (photo && !slot.children.length) slot.innerHTML = photoMarkup(photo, !!slot.dataset.format);
   });
   renderGallery();
-  heroReady = true;
+  
   route(true); updateScroll();
 } catch (error) {
   console.error('Could not load the door catalog', error);
   $('#gallery-error').hidden = false;
-  heroReady = true; updateScroll();
+   updateScroll();
   if (location.hash === '#doors') setGallery(true, 0);
 }
+
+const settings = $('#accessibility-panel');
+let settingsFocus;
+function showSettings() {
+  if (navigation.open) closeMenu();
+  settingsFocus = document.activeElement;
+  lockScroll(); settings.showModal();
+  $('#accessibility-trigger').setAttribute('aria-expanded', 'true');
+}
+function closeSettings() {
+  settings.close(); if (!lightbox.open) unlockScroll(); settingsFocus?.focus({preventScroll:true});
+  $('#accessibility-trigger').setAttribute('aria-expanded', 'false');
+}
+$$('[data-open-accessibility]').forEach(button => button.addEventListener('click', showSettings));
+$('#close-accessibility').addEventListener('click', closeSettings);
+settings.addEventListener('cancel', event => {event.preventDefault();closeSettings();});
+document.addEventListener('keydown', event => {
+  if(event.altKey && event.code === 'KeyA') {event.preventDefault(); settings.open ? closeSettings() : showSettings();}
+});
+function syncPrefs() {
+  const preferences = window.liamPreferences.get();
+  $$('[data-pref]').forEach(control => {
+    if(control.type === 'checkbox') control.checked = !!preferences[control.dataset.pref];
+    else control.value = String(preferences[control.dataset.pref]);
+  });
+  syncSlider(); chooseVideo();
+}
+$$('[data-pref]').forEach(control => control.addEventListener('change', () => {
+  window.liamPreferences.set(control.dataset.pref, control.type === 'checkbox' ? control.checked : control.value);
+  syncPrefs();
+}));
+$('#reset-accessibility').addEventListener('click', () => {window.liamPreferences.reset();syncPrefs();});
+syncPrefs();

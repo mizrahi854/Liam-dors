@@ -5,3 +5,5 @@ output/
 .DS_Store
 *.zip
 *.tar.gz
+
+.playwright-cli/

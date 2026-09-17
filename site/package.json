@@ -3,10 +3,10 @@
   "version": "1.0.0",
   "private": true,
   "type": "module",
-  "description": "A mobile architectural door catalog with scroll-driven hero and cinematic video.",
+  "description": "Responsive architectural door catalog with a three-image hero and cinematic video.",
   "scripts": {
     "dev": "node scripts/serve.mjs",
     "start": "node scripts/serve.mjs",
-    "check": "node --check dist/app.js && node scripts/check.mjs"
+    "check": "node --check dist/app.js && node --check dist/preferences.js && node scripts/check.mjs && node scripts/check-ui.mjs"
   }
 }
