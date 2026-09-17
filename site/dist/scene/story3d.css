@@ -1,0 +1,382 @@
+/* LIAM — the scroll-driven door film (#system).
+   Two layouts from one document: without the film this is an article with a photograph and
+   stacked chapters; with it, a full-height cinema where the same chapters become captions.
+   The picture is a portrait plate held in a dark room, the way the film itself is framed. */
+
+#system {
+  --scene-ink: #f4f3f1;
+  --scene-dim: #a9a7a4;
+  --scene-rule: #ffffff2e;
+  --scene-back: #0b0b0c;
+  --scene-plate: 586 / 716;
+  position: relative;
+  background: var(--scene-back);
+  color: var(--scene-ink);
+  isolation: isolate;
+}
+
+/* ─── stage ─── */
+.scene-stage {
+  position: relative;
+  background: var(--scene-back);
+}
+.scene-plate-holder {
+  position: relative;
+  display: grid;
+  place-items: center;
+  height: 76svh;
+  min-height: 420px;
+  overflow: hidden;
+}
+.scene-canvas,
+.scene-poster {
+  display: block;
+  height: min(86svh, 820px);
+  max-width: calc(100% - 2 * var(--gutter));
+  aspect-ratio: var(--scene-plate);
+  object-fit: cover;
+  background: #141415;
+}
+.scene-poster { position: absolute; transition: opacity .7s var(--ease-out); }
+.scene-canvas { opacity: 0; transition: opacity .7s var(--ease-out); }
+.scene-stage[data-state="ready"] .scene-canvas { opacity: 1; }
+.scene-stage[data-state="ready"] .scene-poster { opacity: 0; }
+
+/* A soft pool of light behind the plate so it reads as a lit object in a dark room, and a
+   corner vignette so the type at the bottom has something to sit against. */
+.scene-plate-holder::before,
+.scene-plate-holder::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+.scene-plate-holder::before {
+  z-index: 0;
+  background: radial-gradient(58% 54% at 50% 46%, #24242699 0%, #0b0b0c00 100%);
+}
+.scene-plate-holder::after {
+  z-index: 2;
+  opacity: 0;
+  background: radial-gradient(112% 88% at 50% 44%, #00000000 46%, #00000047 80%, #0000009e 100%);
+  transition: opacity .8s var(--ease-out);
+}
+.scene-stage[data-state="ready"] .scene-plate-holder::after { opacity: 1; }
+
+/* ─── loading ───
+   A held black card with the wordmark and one hairline that fills with the share of frames
+   actually decoded. Quiet on purpose: no spinner, no percentage, no bounce. */
+.scene-loader {
+  position: absolute;
+  inset: 0;
+  z-index: 6;
+  display: grid;
+  align-content: center;
+  justify-items: center;
+  gap: 26px;
+  background: var(--scene-back);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .6s var(--ease-out);
+}
+.scene-stage[data-state="loading"] .scene-loader { opacity: 1; }
+.scene-loader-mark {
+  font-family: Heebo, Arial, sans-serif;
+  font-size: .8125rem;
+  letter-spacing: .42em;
+  padding-inline-start: .42em;
+  color: var(--scene-ink);
+  animation: scene-breathe 2.6s var(--ease-in-out) infinite;
+}
+.scene-loader-bar {
+  width: min(152px, 36vw);
+  height: 1px;
+  background: #ffffff24;
+  overflow: hidden;
+}
+.scene-loader-bar span {
+  display: block;
+  height: 100%;
+  background: var(--scene-ink);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform .3s linear;
+}
+.scene-loader p { font-size: .75rem; letter-spacing: .04em; color: var(--scene-dim); }
+@keyframes scene-breathe { 0%, 100% { opacity: .45 } 50% { opacity: 1 } }
+
+/* ─── callouts ─── */
+.scene-callouts {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+}
+.scene-leaders {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+.scene-leaders line {
+  stroke: #ffffffc4;
+  stroke-width: 1;
+  transition: opacity .3s linear;
+}
+.scene-callout {
+  position: absolute;
+  top: calc(var(--y) * 100%);
+  left: 0;
+  right: 0;
+  visibility: hidden;
+  transition: opacity .3s linear;
+}
+.scene-callout-label {
+  position: absolute;
+  top: 0;
+  width: max-content;
+  max-width: min(40vw, 230px);
+  padding-bottom: 5px;
+  line-height: 1.24;
+}
+.scene-callout[data-side="left"] .scene-callout-label { left: clamp(14px, 2.6vw, 40px); text-align: left; }
+.scene-callout[data-side="right"] .scene-callout-label { right: clamp(14px, 2.6vw, 40px); text-align: right; }
+.scene-callout-label .he {
+  display: block;
+  font-family: Heebo, Arial, sans-serif;
+  font-size: clamp(.75rem, 1.4vw, .9375rem);
+  font-weight: 500;
+  color: #fff;
+  text-shadow: 0 1px 14px #000000b3;
+}
+.scene-callout-label .en {
+  display: block;
+  margin-top: 2px;
+  font-size: clamp(.5rem, .95vw, .625rem);
+  letter-spacing: .13em;
+  color: #ffffff9e;
+  text-shadow: 0 1px 12px #000000b3;
+}
+.scene-callout-dot {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 7px;
+  height: 7px;
+  margin: -3.5px 0 0 -3.5px;
+  border: 1px solid #fff;
+  border-radius: 50%;
+  background: #ffffff33;
+}
+
+/* ─── chapter copy ─── */
+.scene-chapters { position: relative; z-index: 4; }
+.scene-chapter { padding: 40px var(--gutter) 0; max-width: 40rem; }
+.scene-chapter .eyebrow { color: #cfccc8; text-align: right; }
+.scene-chapter h2,
+.scene-chapter h3 {
+  font-family: Heebo, Arial, sans-serif;
+  font-weight: 400;
+  font-size: clamp(1.9rem, 6.6vw, 2.6rem);
+  line-height: 1.1;
+  letter-spacing: -.015em;
+  margin: 12px 0 18px;
+  color: #fff;
+}
+.scene-chapter p { font-size: 1.0625rem; line-height: 1.68; color: #dedcd9; max-width: 34rem; }
+.scene-chapter p + p { margin-top: 14px; }
+.scene-chapter .lead { color: #fff; font-size: 1.1875rem; }
+.scene-cue {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 26px;
+  font-size: .8125rem;
+  color: #c6c3bf;
+}
+.scene-cue i {
+  width: 1px;
+  height: 26px;
+  background: linear-gradient(#ffffff00, #ffffffbf);
+  animation: scene-cue 2.1s var(--ease-in-out) infinite;
+}
+@keyframes scene-cue { 0%, 100% { transform: scaleY(.4); opacity: .35 } 50% { transform: scaleY(1); opacity: 1 } }
+.scene-chapter .scene-dimension {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  margin-top: 22px;
+  padding-top: 16px;
+  border-top: 1px solid var(--scene-rule);
+}
+.scene-dimension b {
+  font-family: Heebo, Arial, sans-serif;
+  font-size: 2.5rem;
+  font-weight: 200;
+  line-height: 1;
+  letter-spacing: -.02em;
+  color: #fff;
+}
+.scene-dimension b small { font-size: .9rem; letter-spacing: .04em; margin-inline-start: 3px; }
+.scene-dimension span { font-size: .9375rem; color: var(--scene-dim); }
+.scene-finishes {
+  margin-top: 18px;
+  font-size: 1rem;
+  line-height: 1.9;
+  color: #fff;
+}
+.scene-finishes span { color: #ffffff5c; margin: 0 6px; }
+.scene-chapter .text-link,
+.scene-chapter .button { margin-top: 22px; }
+.scene-chapter .text-link { color: #fff; border-bottom-color: #ffffff59; }
+.scene-chapter .button { display: inline-flex; width: auto; }
+.scene-chapter .button-dark { background: #fff; color: #141414; border-color: #fff; }
+
+/* ─── progress and small print ─── */
+.scene-progress {
+  position: absolute;
+  z-index: 4;
+  bottom: 58px;
+  left: var(--gutter);
+  display: flex;
+  gap: 6px;
+  opacity: 0;
+  transition: opacity .5s var(--ease-out);
+}
+.scene-progress span {
+  width: 20px;
+  height: 2px;
+  background: #ffffff40;
+  box-shadow: 0 1px 6px #00000080;
+  transition: background .45s var(--ease-out);
+}
+.scene-progress span[data-on] { background: #fff; }
+.scene-note { margin: 0; padding: 26px var(--gutter) 34px; font-size: .6875rem; line-height: 1.6; color: #7e7c7a; }
+
+/* ─── cinema layout: only once the film is actually running ─── */
+#system[data-scene="on"] { height: 380svh; }
+#system[data-scene="on"] .scene-stage {
+  position: sticky;
+  top: 0;
+  height: 100svh;
+  overflow: hidden;
+}
+#system[data-scene="on"] .scene-plate-holder {
+  position: absolute;
+  inset: 0;
+  height: auto;
+  min-height: 0;
+}
+#system[data-scene="on"] .scene-progress { opacity: 1; }
+#system[data-scene="on"] .scene-chapters {
+  position: absolute;
+  z-index: 4;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  padding: 130px var(--gutter) 56px;
+  background: linear-gradient(to top, #050506e0 0%, #050506b3 44%, #05050600 100%);
+  pointer-events: none;
+}
+#system[data-scene="on"] .scene-chapter {
+  position: absolute;
+  bottom: 56px;
+  right: var(--gutter);
+  left: var(--gutter);
+  max-width: 34rem;
+  margin-inline-start: auto;
+  padding: 0;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(14px);
+  /* The outgoing caption clears before the next one arrives — two paragraphs cross-fading on
+     top of each other is unreadable, especially on a phone. */
+  transition: opacity .2s linear, transform .2s var(--ease-out), visibility .2s;
+  pointer-events: none;
+}
+#system[data-scene="on"] .scene-chapter[data-active] {
+  opacity: 1;
+  visibility: visible;
+  transform: none;
+  pointer-events: auto;
+  transition: opacity .42s var(--ease-out) .17s, transform .42s var(--ease-out) .17s, visibility 0s;
+}
+#system[data-scene="on"] .scene-chapter h2,
+#system[data-scene="on"] .scene-chapter h3 { font-size: clamp(1.6rem, 5.2vw, 2.2rem); margin-bottom: 12px; }
+#system[data-scene="on"] .scene-chapter p { font-size: .9375rem; line-height: 1.6; }
+#system[data-scene="on"] .scene-chapter .lead { font-size: 1.0625rem; }
+#system[data-scene="on"] .scene-chapter p + p { margin-top: 8px; }
+#system[data-scene="on"] .scene-note {
+  position: absolute;
+  bottom: 18px;
+  left: var(--gutter);
+  z-index: 4;
+  max-width: 14rem;
+  padding: 0;
+  color: #b9b6b2;
+  text-shadow: 0 1px 6px #000000a6;
+}
+
+/* On a phone the plate fills the stage and the copy sits on it. Two callouts only —
+   four leader lines on a 375 px screen is noise, not information. */
+@media (max-width: 767px) {
+  /* Filling a 375 × 812 stage with a 586 × 716 frame would crop away half the door, so on a
+     phone the picture keeps its shape at the top and the copy takes the space below it. */
+  #system[data-scene="on"] .scene-plate-holder { align-items: start; padding-top: 62px; }
+  #system[data-scene="on"] .scene-canvas,
+  #system[data-scene="on"] .scene-poster { width: 100%; max-width: none; height: auto; }
+  .scene-callout:not([data-key]) { display: none; }
+  .scene-callout-label { max-width: 52vw; }
+  #system[data-scene="on"] { height: 340svh; }
+  #system[data-scene="on"] .scene-chapters {
+    padding: 90px var(--gutter) 64px;
+    background: linear-gradient(to top, #050506f2 0%, #050506e6 52%, #05050600 100%);
+  }
+  #system[data-scene="on"] .scene-chapter { bottom: 64px; }
+  .scene-progress { bottom: 64px; }
+  #system[data-scene="on"] .scene-note { bottom: 20px; max-width: 17rem; }
+}
+
+@media (min-width: 768px) {
+  .scene-plate-holder { height: 84svh; }
+  .scene-chapter { padding: 56px var(--gutter) 0; }
+  .scene-chapter h2, .scene-chapter h3 { font-size: clamp(2.2rem, 3.4vw, 3.1rem); }
+  .scene-chapter p { font-size: 1.125rem; }
+  /* The plate sits left of centre so the copy has a column of its own. */
+  .scene-plate-holder { right: min(27vw, 420px); }
+  #system[data-scene="on"] .scene-chapters {
+    left: auto;
+    width: min(42vw, 480px);
+    padding: 200px clamp(32px, 4vw, 64px) clamp(56px, 7vh, 88px) 36px;
+    background: linear-gradient(to top, #050506cc 0%, #05050699 48%, #05050600 100%),
+                linear-gradient(to left, #050506a6 0%, #0505063d 62%, #05050600 100%);
+  }
+  #system[data-scene="on"] .scene-chapter {
+    bottom: clamp(56px, 7vh, 88px);
+    right: clamp(32px, 4vw, 64px);
+    left: 36px;
+    max-width: none;
+  }
+  #system[data-scene="on"] .scene-chapter h2,
+  #system[data-scene="on"] .scene-chapter h3 { font-size: clamp(1.8rem, 2.4vw, 2.4rem); }
+  #system[data-scene="on"] .scene-chapter p { font-size: 1rem; }
+  #system[data-scene="on"] .scene-chapter .lead { font-size: 1.125rem; }
+  .scene-progress { bottom: calc(clamp(24px, 3.2vh, 38px) + 52px); left: clamp(32px, 4vw, 64px); }
+  .scene-progress span { width: 28px; }
+  .scene-note { padding: 34px var(--gutter) 44px; }
+  #system[data-scene="on"] .scene-note { bottom: clamp(24px, 3.2vh, 38px); left: clamp(32px, 4vw, 64px); max-width: 18rem; }
+}
+
+/* Short laptop screens: the copy would otherwise crowd the picture out. */
+@media (min-width: 768px) and (max-height: 760px) {
+  #system[data-scene="on"] .scene-chapter p { font-size: .9375rem; line-height: 1.55; }
+  #system[data-scene="on"] .scene-chapter h2,
+  #system[data-scene="on"] .scene-chapter h3 { font-size: 1.7rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scene-loader-mark, .scene-cue i { animation: none; }
+  .scene-canvas, .scene-chapter, .scene-callout, .scene-leaders line { transition: none; }
+}
+.a11y-motion .scene-loader-mark, .a11y-motion .scene-cue i { animation: none; }

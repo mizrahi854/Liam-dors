@@ -1,0 +1,94 @@
+/* LIAM door film player. Same families as the site: Heebo (display), Assistant (text). */
+@font-face{font-family:Heebo;src:url('../../media/fonts/heebo-hebrew.woff2') format('woff2');font-weight:100 900;font-display:swap;unicode-range:U+0590-05FF,U+200C-2010,U+20AA,U+25CC,U+FB1D-FB4F}
+@font-face{font-family:Heebo;src:url('../../media/fonts/heebo-latin.woff2') format('woff2');font-weight:100 900;font-display:swap}
+@font-face{font-family:Assistant;src:url('../../media/fonts/assistant-hebrew.woff2') format('woff2');font-weight:200 800;font-display:swap;unicode-range:U+0590-05FF,U+200C-2010,U+20AA,U+25CC,U+FB1D-FB4F}
+@font-face{font-family:Assistant;src:url('../../media/fonts/assistant-latin.woff2') format('woff2');font-weight:200 800;font-display:swap}
+
+:root{
+  --film:#2a2b2c;        /* average tone of the rendered wall, so letterboxing never flashes */
+  --paper:#f4f2ee;
+  --ink:#181818;
+  --text:#f3f1ec;
+  --muted:#c9c6bf;
+  --line:#ffffff40;
+  --warm:#e0c39a;        /* the interior light; progress bar + callout dot only */
+  --gutter:20px;
+  --ease-out:cubic-bezier(.23,1,.32,1);
+  color-scheme:dark;
+  font-family:Assistant,Arial,sans-serif;
+  -webkit-text-size-adjust:100%;text-size-adjust:100%;
+}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--film);color:var(--text)}
+body{-webkit-font-smoothing:antialiased;font-synthesis:none}
+h1,h2,p{margin:0}
+h1,h2{font-family:Heebo,Arial,sans-serif;font-weight:300;letter-spacing:-.04em;text-wrap:balance}
+a{color:inherit}
+a:focus-visible{outline:2px solid currentColor;outline-offset:5px}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+.skip{position:fixed;top:12px;right:12px;z-index:50;background:var(--paper);color:var(--ink);padding:12px 16px;transform:translateY(-160%)}
+.skip:focus{transform:none}
+
+.lab-bar{position:fixed;inset:0 0 auto;z-index:20;display:flex;align-items:center;justify-content:space-between;padding:calc(14px + env(safe-area-inset-top)) var(--gutter) 14px;pointer-events:none}
+.lab-bar>*{pointer-events:auto}
+.badge{display:grid;place-items:center;width:48px;height:48px;border:1px solid #ffffffa6;border-radius:50%;text-decoration:none;font:500 12px/1 Heebo,Arial,sans-serif;letter-spacing:.16em;padding-left:.16em;background:#18181838}
+.lab-note{font-size:.75rem;color:var(--muted)}
+
+/* Scroll distance is the film's duration. */
+.door-film{position:relative;height:520svh}
+.film-sticky{position:sticky;top:0;height:100svh;overflow:hidden;isolation:isolate}
+.film-canvas,.film-poster{position:absolute;inset:0;width:100%;height:100%}
+.film-poster{object-fit:cover}
+.film-canvas{opacity:0;transition:opacity 500ms ease}
+.is-ready .film-canvas{opacity:1}
+/* Legibility: darken only the bands where type sits. */
+.film-shade{position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,#0000004d 0,transparent 18%,transparent 62%,#000000b3 100%)}
+
+.film-intro{position:absolute;inset:0;z-index:3;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:0 var(--gutter);--o:1;opacity:var(--o);transform:translate3d(0,calc((1 - var(--o)) * -24px),0);background:radial-gradient(70% 40% at 50% 50%,#00000080,transparent 80%)}
+.eyebrow{font:500 .6875rem/1 Heebo,Arial,sans-serif;letter-spacing:.24em;color:var(--muted);margin-bottom:18px}
+.film-intro h1{font-size:clamp(2.3rem,9.4vw,6rem);line-height:1.03}
+.cue{position:absolute;bottom:calc(40px + env(safe-area-inset-bottom));display:flex;flex-direction:column;align-items:center;gap:12px;font-size:.8125rem;letter-spacing:.06em;color:var(--muted)}
+.cue span{width:1px;height:44px;background:linear-gradient(var(--text),transparent);transform-origin:top;animation:cue 2.2s var(--ease-out) infinite}
+@keyframes cue{0%{transform:scaleY(0)}55%{transform:scaleY(1);opacity:1}100%{transform:scaleY(1);opacity:0}}
+
+/* Storyboard captions: index, title, one line. Crossfaded by player.js through --o. */
+.film-caption{position:absolute;z-index:3;inset:auto var(--gutter) calc(48px + env(safe-area-inset-bottom));--o:0;opacity:var(--o);transform:translate3d(0,calc((1 - var(--o)) * 12px),0)}
+.caption-index{font:300 1.5rem/1 Heebo,Arial,sans-serif;letter-spacing:-.02em;color:var(--muted);margin-bottom:10px;text-align:right}
+.caption-title{font-size:clamp(1.75rem,7.4vw,3rem);line-height:1.05;margin-bottom:10px}
+.caption-sub{font-size:1.0625rem;line-height:1.5;color:#e2dfd9;max-width:28rem}
+
+.film-callout{position:absolute;inset:0;width:100%;height:100%;z-index:2;pointer-events:none;overflow:visible}
+.film-callout line{stroke:#ffffffb3;stroke-width:1}
+.film-callout circle{fill:var(--warm)}
+.film-callout-label{position:absolute;top:0;left:0;z-index:2;font:500 .8125rem/1.2 Assistant,Arial,sans-serif;color:var(--text);white-space:nowrap;text-shadow:0 1px 10px #000c;pointer-events:none}
+
+.film-progress{position:absolute;z-index:4;inset:auto var(--gutter) calc(22px + env(safe-area-inset-bottom));height:1px;background:var(--line)}
+.film-progress span{position:absolute;inset:0;background:var(--warm);transform-origin:right;transform:scaleX(var(--p,0))}
+.film-status{position:absolute;z-index:4;top:calc(76px + env(safe-area-inset-top));left:var(--gutter);font-size:.75rem;color:var(--muted)}
+
+.after{min-height:80svh;background:var(--paper);color:var(--ink);padding:96px var(--gutter);display:flex;flex-direction:column;justify-content:center;gap:18px}
+.after .eyebrow{color:#6b6b6b;margin:0}
+.after h2{font-size:clamp(2.4rem,9vw,5rem);line-height:1.02}
+.after p{font-size:1.125rem;line-height:1.6;max-width:38rem;color:#474747}
+.after .note{font-size:.875rem;color:#6b6b6b}
+.after-links{display:flex;flex-wrap:wrap;gap:8px 28px}
+.after-links a{min-height:44px;display:inline-flex;align-items:center;text-underline-offset:6px}
+
+@media (min-width:768px){
+  :root{--gutter:48px}
+  .door-film{height:480svh}
+  .film-caption{inset:auto auto calc(64px + env(safe-area-inset-bottom)) auto;inset-inline-start:6vw;max-width:30rem}
+  .film-shade{background:linear-gradient(90deg,transparent 45%,#00000080 100%),linear-gradient(180deg,#00000040 0,transparent 20%,transparent 70%,#00000073 100%)}
+  .film-callout-label{font-size:.9375rem}
+  .film-progress{inset-inline:auto var(--gutter);width:220px}
+}
+
+/* Reduced motion: no scrub. One representative frame and every caption as plain text. */
+.is-static .door-film{height:auto}
+.is-static .film-sticky{position:relative;height:auto;overflow:visible}
+.is-static .film-canvas,.is-static .film-callout,.is-static .film-callout-label,.is-static .film-progress,.is-static .cue,.is-static .film-caption{display:none}
+.is-static .film-poster{position:relative;height:80svh}
+.is-static .film-intro{position:relative;padding:120px var(--gutter) 48px;background:none}
+.is-static .film-transcript{position:static;width:auto;height:auto;clip-path:none;white-space:normal;margin:0;padding:24px var(--gutter) 72px;list-style:none;display:grid;gap:18px;max-width:40rem}
+.is-static .film-transcript b{display:block;font:400 1.25rem Heebo,Arial,sans-serif}
+@media (prefers-reduced-motion:reduce){.cue span{animation:none}.film-canvas{transition:none}}

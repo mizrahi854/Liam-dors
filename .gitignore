@@ -1,0 +1,6 @@
+# Full-size render masters (~190 MB). Regenerate with site/dist/lab/door-film/render.html
+design/renders/door-film/portrait/
+design/renders/door-film/landscape/
+
+# Debug and preview renders from the lab tooling.
+design/renders/door-film/preview/

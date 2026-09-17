@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>LIAM · ייצוא דלת GLB</title>
+<style>body{margin:0;min-height:100vh;display:grid;place-items:center;background:#161616;color:#eee;font:16px/1.6 system-ui,sans-serif}pre{direction:ltr;text-align:left;white-space:pre-wrap;max-width:640px;padding:24px}</style>
+<script type="importmap">{"imports":{"three":"../../vendor/three/three.module.min.js","three/addons/":"../../vendor/three/addons/"}}</script>
+</head>
+<body>
+<pre id="log">Building…</pre>
+<script type="module">
+import {GLTFExporter} from 'three/addons/exporters/GLTFExporter.js';
+import {buildDoor, LAYERS} from '../../scene/door-model.js';
+const log = document.querySelector('#log');
+const t0 = performance.now();
+const door = buildDoor();
+door.updateMatrixWorld(true);
+const glb = await new GLTFExporter().parseAsync(door, {binary: true, onlyVisible: false});
+const names = []; door.traverse(o => { if (o.name && (o.isGroup || o.name.startsWith('Hardware'))) names.push(o.name); });
+const saved = await fetch('/__lab/save?path=site/dist/media/3d/liam-door.glb', {method: 'POST', body: glb}).then(r => r.ok ? r.json() : Promise.reject(r.status)).catch(e => ({error: String(e)}));
+window.__exportResult = {bytes: glb.byteLength, saved, ms: Math.round(performance.now() - t0), layers: LAYERS.map(l => l.name), nodes: names};
+log.textContent = JSON.stringify(window.__exportResult, null, 2);
+</script>
+</body>
+</html>

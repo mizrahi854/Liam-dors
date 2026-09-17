@@ -4,6 +4,8 @@
 
 הפעלה: `cd site` ואז `npm run dev`. הגלריה דורשת שרת HTTP; לא לפתוח את ה־HTML כקובץ מקומי.
 
+**בעבודה — סרט הדלת בתלת־ממד (לא פורסם):** `cd site && npm run lab` ← `http://127.0.0.1:8766/lab/door-film/`. מסמך ההמשך: [docs/המשך-סרט-דלת-תלת-ממד.md](docs/המשך-סרט-דלת-תלת-ממד.md). סרטונים: `site/dist/media/door-film/*.mp4`.
+
 ## מה לפתוח
 - [הירו למובייל](design/liam-mobile-hero-v2.png)
 - [עבודות, וידאו וגלריה — הדמיית מובייל](design/liam-mobile-sections-v2.png)

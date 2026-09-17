@@ -12,7 +12,7 @@ for(const name of ['styles.css','accessibility.css','story.css']){
 }
 const app=resolve(root,'app.js');
 writeFileSync(app,readFileSync(app,'utf8').replace(/fetch\('catalog\.json(?:\?v=[a-f0-9]+)?'\)/,`fetch('${version('catalog.json')}')`));
-const assets=['styles.css','accessibility.css','story.css','preferences.js','app.js','story.js'];
+const assets=['styles.css','accessibility.css','story.css','scene/story3d.css','preferences.js','app.js','story.js','scene/story3d.js'];
 for(const name of ['index.html','accessibility.html']){
  const file=resolve(root,name);let html=readFileSync(file,'utf8');
  for(const asset of assets){const escaped=asset.replaceAll('.','\\.');html=html.replace(new RegExp(`((?:href|src)=")${escaped}(?:\\?v=[a-f0-9]+)?("|&)`,'g'),`$1${version(asset)}$2`);}

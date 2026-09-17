@@ -1,0 +1,7 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {"name": "liam-lab", "runtimeExecutable": "node", "runtimeArgs": ["site/scripts/lab-server.mjs"], "port": 8766},
+    {"name": "liam-site", "runtimeExecutable": "npm", "runtimeArgs": ["--prefix", "site", "run", "dev"], "port": 8765}
+  ]
+}
