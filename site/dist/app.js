@@ -361,3 +361,25 @@ $$('[data-pref]').forEach(control => control.addEventListener('change', () => {
 }));
 $('#reset-accessibility').addEventListener('click', () => {window.liamPreferences.reset();syncPrefs();});
 syncPrefs();
+
+const ronPhone = '0503567110';
+const ronPhoneInternational = '972503567110';
+const phoneLink = $('.footer-contact a[href^="tel:"]');
+const whatsappLink = $('.footer-social a[href*="wa.me"]');
+if (phoneLink) {
+  phoneLink.href = `tel:+${ronPhoneInternational}`;
+  const phoneLabel = phoneLink.querySelector('[dir="ltr"]');
+  if (phoneLabel) phoneLabel.textContent = ronPhone;
+}
+if (whatsappLink) whatsappLink.href = `https://wa.me/${ronPhoneInternational}`;
+
+const cookieBanner = document.createElement('aside');
+cookieBanner.className = 'cookie-consent';
+cookieBanner.setAttribute('aria-label', 'אישור קבצי קוקיז');
+cookieBanner.innerHTML = '<div><strong>קבצי קוקיז</strong><p>אנחנו משתמשים בקבצי קוקיז חיוניים כדי שהאתר יעבוד כראוי.</p></div><button type="button">מאשר/ת</button>';
+const cookieKey = 'liam-cookie-consent';
+if (localStorage.getItem(cookieKey) !== 'accepted') document.body.append(cookieBanner);
+cookieBanner.querySelector('button').addEventListener('click', () => {
+  localStorage.setItem(cookieKey, 'accepted');
+  cookieBanner.remove();
+});
